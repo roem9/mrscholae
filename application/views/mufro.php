@@ -1,0 +1,2 @@
+<?php
+    // kata benda
