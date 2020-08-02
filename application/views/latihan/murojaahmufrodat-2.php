@@ -4,7 +4,7 @@
                     <a id="backHome" class="btn btn-sm btn-danger text-light"><i class="fa fa-times"></i></a>
                 </div>
                 <div class="col-12 mb-1">
-                    <div class="alert alert-warning"><i class="fa fa-exclamation-circle text-warning mr-1"></i>Ketik bahasa Arab dari setiap kata berikut, kemudian tekan tombol <strong>simpan</strong></div>
+                    <div class="alert alert-warning"><i class="fa fa-exclamation-circle text-warning mr-1"></i>Terjemahkan kata berikut ini ke dalam bahasa Arab. Pilihlah jawaban kemudian tekan tombol <strong>simpan</strong></div>
                 </div>
             </div>
             <?php 
@@ -14,33 +14,30 @@
 
                 <div class="col-12 col-md-12 mb-3">
                     <div class="form-group">
-                        <div class="arab">
-                            <label for="<?=$i?>"><strong><?= $i+1?>. <?= $kalimat['arti']?></strong></label>
+                        <!-- <div class="arab"> -->
+                            <label for="<?=$i?>"><strong><?= $i+1?>. <?= $kalimat['kata_arab']?></strong></label>
                             <span class="icon-cek-<?= $i?>"></span>
-                        </div>
-                        <input type="hidden" name="kunci<?=$i?>" value="<?= $kalimat['kata_arab']?>">
+                        <!-- </div> -->
+                        <input type="hidden" name="kunci<?=$i?>" value="<?= $kalimat['arti']?>">
                         <input type="hidden" name="j<?= $i?>" id="jawaban<?=$i?>">
                         <div class="d-flex justify-content-between">
                             <a id="btnEdit<?=$i?>" class="btn btn-sm btn-success text-light edit" data-id="<?= $i?>" style="display: none">ubah</a>
                             <h5 class="text-right" id="j<?=$i?>"></h5>
-                        </div>                        
+                        </div>
+                        
                         <div id="select<?=$i?>">
-                                <textarea name="jaw<?=$i?>" id="jaw<?=$i?>" class="form-control" readonly></textarea>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <?php 
-                                            // shuffle($huruf);
-                                            shuffle($kalimat['huruf']);
-                                            foreach ($kalimat['huruf'] as $k => $data) :?>
-                                                <div class="radio-toolbar mr-3">
-                                                    <a data-id="<?= $data?>|<?= $i?>" class="btn border-dark btn-md btn-secondary text-light mt-1 mb-1 arab input-btn" style="height: 40px; width: 40px; border-width: 2px"><b><?= $data?></b></a>
-                                                </div>
-                                        <?php endforeach;?>
-                                    </div>
+                            <div class="container">
+                                <div class="row justify-content-between">
+                                    <?php foreach ($kata as $k => $data) :?>
+                                        <div class="radio-toolbar">
+                                            <input type="radio" id="<?= $i.$k?>" name="<?= $i?>1" class="btn-primary" value="<?= $data?>">
+                                            <label for="<?= $i.$k?>"><center><?= $data?></center></label>
+                                        </div>
+                                    <?php endforeach;?>
                                 </div>
-                                <a class="btn btn-block btn-sm btn-info text-light cek" data-id="<?= $i?>|1">Simpan</a>
-                                <a class="btn btn-block btn-sm btn-danger text-light hapus" data-id="<?= $i?>">Hapus</a>
                             </div>
+                            <a class="btn btn-block btn-sm btn-info text-light cek" data-id="<?= $i?>|1">Simpan</a>
+                        </div>
                     </div>
                 </div>
             <?php endforeach;?>
@@ -49,8 +46,8 @@
                 <form action="<?= base_url()?>mufrodat/add_mufrodat" method="post" id="latihan">
                     <input type="hidden" name="materi" value="<?= $materi?>">
                     <input type="hidden" name="tema" value="<?= $tema?>">
-                    <input type="hidden" name="latihan" value="Latihan 3">
-                    <input type="hidden" name="redirect" value="<?= $redirect?>">
+                    <input type="hidden" name="latihan" value="Murojaah">
+                    <input type="hidden" name="redirect" value="mufrodat/listmurojaah">
                 </form>
                 <div class="col-12 col-md-12 mb-3">
                     <a id="simpanJawaban" data-id="<?= COUNT($mufrodat)?>" class="btn btn-block btn-primary text-light">Periksa</a>
@@ -105,25 +102,17 @@
         })
     })
 
-    $(".input-btn").click(function(){
-        let data = $(this).data("id");
-        data = data.split("|");
-        let kata = data[0];
-        let id = data[1];
-        
-        let html = $("#jaw"+id).val();
-
-        $("#jaw"+id).val(html + "" + kata);
-    })
-
     $(".cek").click(function(){
         let data = $(this).data("id");
         data = data.split("|");
         let id = data[0];
         let total = data[1];
-        html = $("#jaw"+id).val();
-        html = html.replace("_", " ")
 
+        let html = '';
+        for (let i = 0; i < total; i++) {
+            html += $("input[name='"+id+""+1+"']:checked").val();
+        }
+        
         if(html === 'undefined'){
             html = '-';
         }
@@ -139,19 +128,6 @@
             $("#select"+id).hide();
             $("#btnEdit"+id).show();
         }
-    })
-
-    $(".hapus").click(function(){
-        let id = $(this).data("id");
-        let answer = $("#jaw"+id).val();
-        if (answer.charAt(answer.length-2) == "ّ"){
-            hapus = answer.slice(0,-3);
-        } else if(answer.charAt(answer.length-1) == "ا" || answer.charAt(answer.length-1) == "ى" || answer.charAt(answer.length-1) == "-" || answer.charAt(answer.length-1) == "ل" || answer.charAt(answer.length-1) == "آ" || answer.charAt(answer.length-1) == "ي"){
-            hapus = answer.slice(0,-1);
-        } else {
-            hapus = answer.slice(0,-2);
-        }
-        $("#jaw"+id).val(hapus);
     })
 
     $(".edit").click(function(){

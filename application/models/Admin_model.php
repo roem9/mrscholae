@@ -1,5 +1,13 @@
 <?php
 class Admin_model extends CI_MODEL{
+    // delete data
+        public function delete_data($table, $where){
+            $this->db->where($where);
+            $this->db->delete($table);
+            return $this->db->affected_rows();
+        }
+    // delete data
+    
     // add data
         public function add_data($table, $data){
             $this->db->insert($table, $data);

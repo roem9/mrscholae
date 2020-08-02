@@ -16,6 +16,15 @@ class Mufrodat extends CI_CONTROLLER{
     public function index(){
         $id = $this->session->userdata('id');
         $data['user'] = $this->Admin_model->get_one("user", ["id_user" => $id]);
+        $data['murojaah'] = [];
+        $murojaah = $this->Admin_model->get_all("murojaah", ["id_user" => $id]);
+
+        foreach ($murojaah as $i => $arab) {
+            $data['murojaah'][$i] = $arab['kata_arab'];
+        }
+
+        // var_dump($data['murojaah']);
+        // exit();
 
         if($_GET){
             if(!empty($_GET['tema'])){
@@ -68,6 +77,30 @@ class Mufrodat extends CI_CONTROLLER{
                     $data['mufrodat'][10] = $this->latihan($id, "Mufrodat 38","Kata Benda 4", "Masjid", 7);
                     $data['mufrodat'][11] = $this->latihan($id, "Mufrodat 39","Kata Kerja 7", "Masjid", 7);
                     $data['mufrodat'][12] = $this->latihan($id, "Mufrodat 40","Kata Kerja 8", "Masjid", 7);
+                } else if($_GET['tema'] == MD5('Tempat Makan dan Dapur')){
+                    $data['title'] = 'Tempat Makan dan Dapur';
+                    $data['mufrodat'][0]['mufrodat'] = 100;
+                    $data['mufrodat'][1] = $this->latihan($id, "Mufrodat 41","Kata Benda 1", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][2] = $this->latihan($id, "Mufrodat 42","Kata Kerja 1", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][3] = $this->latihan($id, "Mufrodat 43","Kata Benda 2", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][4] = $this->latihan($id, "Mufrodat 44","Kata Kerja 2", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][5] = $this->latihan($id, "Mufrodat 45","Kata Benda 3", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][6] = $this->latihan($id, "Mufrodat 46","Kata Kerja 3", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][7] = $this->latihan($id, "Mufrodat 47","Kata Benda 4", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][8] = $this->latihan($id, "Mufrodat 48","Kata Kerja 4", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][9] = $this->latihan($id, "Mufrodat 49","Kata Benda 5", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][10] = $this->latihan($id, "Mufrodat 50","Kata Kerja 5", "Tempat Makan dan Dapur", 7);
+                    $data['mufrodat'][11] = $this->latihan($id, "Mufrodat 51","Kata Benda 6", "Tempat Makan dan Dapur", 6);
+                    $data['mufrodat'][12] = $this->latihan($id, "Mufrodat 52","Kata Kerja 6", "Tempat Makan dan Dapur", 6);
+                } else if($_GET['tema'] == MD5('Kamar Mandi')){
+                    $data['title'] = 'Kamar Mandi';
+                    $data['mufrodat'][0]['mufrodat'] = 100;
+                    $data['mufrodat'][1] = $this->latihan($id, "Mufrodat 53","Kata Benda 1", "Kamar Mandi", 7);
+                    $data['mufrodat'][2] = $this->latihan($id, "Mufrodat 54","Kata Kerja 1", "Kamar Mandi", 6);
+                    $data['mufrodat'][3] = $this->latihan($id, "Mufrodat 55","Kata Benda 2", "Kamar Mandi", 7);
+                    $data['mufrodat'][4] = $this->latihan($id, "Mufrodat 56","Kata Kerja 2", "Kamar Mandi", 6);
+                    $data['mufrodat'][5] = $this->latihan($id, "Mufrodat 57","Kata Benda 3", "Kamar Mandi", 6);
+                    $data['mufrodat'][6] = $this->latihan($id, "Mufrodat 58","Kata Kerja 3", "Kamar Mandi", 5);
                 }
 
                 $this->load->view("templates/header-user", $data);
@@ -1840,10 +1873,731 @@ class Mufrodat extends CI_CONTROLLER{
                             "huruf" => array_unique(["خَ","شَ","عَ","-","يَ","خْ","شَ","عُ"])
                         ]
                     ];
+                } else if($_GET['id'] == MD5('Mufrodat 41')){
+                    $data['materi'] = "Mufrodat 41";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 41");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "مَوْقِدٌ",
+                            "arti" => "Kompor",
+                            "huruf" => array_unique(["مَ","وْ","قِ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِقْلَاةٌ",
+                            "arti" => "Wajan",
+                            "huruf" => array_unique(["مِ","قْ","لَ","ا","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "غَازٌ",
+                            "arti" => "Gas",
+                            "huruf" => array_unique(["غَ","ا","زٌ"])
+                        ],
+                        [
+                            "kata_arab" => "صَحْنٌ",
+                            "arti" => "Piring",
+                            "huruf" => array_unique(["صَ","حْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "كُوْبٌ",
+                            "arti" => "Gelas",
+                            "huruf" => array_unique(["كُ","وْ","بٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْعَقَةٌ",
+                            "arti" => "Sendok",
+                            "huruf" => array_unique(["مِ","لْ","عَ","قَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَائِدَةٌ",
+                            "arti" => "Meja makan",
+                            "huruf" => array_unique(["مَ","ا","ئِ","دَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 42')){
+                    $data['materi'] = "Mufrodat 42";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 42");
+                    $data['mufrodat'] = [
+                        [
+                            " kata_arab" => "أَكَلَ-يَأْكُلُ",
+                            "arti" => "Makan",
+                            "huruf" => array_unique(["أَ","كَ","لَ","-","يَ","أْ","كُ","لُ"])
+                        ],
+                        [
+                            " kata_arab" => "شَرِبَ-يَشْرَبُ",
+                            "arti" => "Minum",
+                            "huruf" => array_unique(["شَ","رِ","بَ","-","يَ","شْ","رَ","بُ"])
+                        ],
+                        [
+                            " kata_arab" => "جَاعَ-يَجُوْعُ",
+                            "arti" => "Lapar",
+                            "huruf" => array_unique(["جَ","ا","عَ","-","يَ","جُ","وْ","عُ"])
+                        ],
+                        [
+                            " kata_arab" => "عَطِشَ-يَعْطَشُ",
+                            "arti" => "Haus",
+                            "huruf" => array_unique(["عَ","طِ","شَ","-","يَ","عْ","طَ","شُ"])
+                        ],
+                        [
+                            " kata_arab" => "شَبِعَ-يَشْبَعُ",
+                            "arti" => "Kenyang",
+                            "huruf" => array_unique(["شَ","بِ","عَ","-","يَ","شْ","بَ","عُ"])
+                        ],
+                        [
+                            " kata_arab" => "طَبَخَ-يَطْبَخُ",
+                            "arti" => "Memasak",
+                            "huruf" => array_unique(["طَ","بَ","خَ","-","يَ","طْ","بَ","خُ"])
+                        ],
+                        [
+                            " kata_arab" => "غَلَى-يَغْلِيْ",
+                            "arti" => "Mendidih",
+                            "huruf" => array_unique(["غَ","لَ","ى","-","يَ","غْ","لِ","يْ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 43')){
+                    $data['materi'] = "Mufrodat 43";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 43");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "شَوْكَةٌ",
+                            "arti" => "Garpu",
+                            "huruf" => array_unique(["شَ","وْ","كَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قَصْعَةٌ",
+                            "arti" => "Nampan",
+                            "huruf" => array_unique(["قَ","صْ","عَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قِدْرٌ",
+                            "arti" => "Panci",
+                            "huruf" => array_unique(["قِ","دْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "سِكِّيْنٌ",
+                            "arti" => "Pisau",
+                            "huruf" => array_unique(["سِ","كِّ","يْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زَمْزَمِيَّةٌ",
+                            "arti" => "Termos",
+                            "huruf" => array_unique(["زَ","مْ","زَ","مِ","يَّ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "ثَلَّاجَةٌ",
+                            "arti" => "Kulkas",
+                            "huruf" => array_unique(["ثَ","لَّ","ا","جَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قَارُوْرَةٌ",
+                            "arti" => "Botol",
+                            "huruf" => array_unique(["قَ","ا","رُ","وْ","رَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 44')){
+                    $data['materi'] = "Mufrodat 44";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 44");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "قَلَى-يَقْلِيْ",
+                            "arti" => "Menggoreng",
+                            "huruf" => array_unique(["قَ","لَ","ى","-","يَ","قْ","لِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "قَطَعَ-يَقْطَعُ",
+                            "arti" => "Memotong",
+                            "huruf" => array_unique(["قَ","طَ","عَ","-","يَ","قْ","طَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَلَقَ-يَسْلُقُ",
+                            "arti" => "Merebus",
+                            "huruf" => array_unique(["سَ","لَ","قَ","-","يَ","سْ","لُ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "صَبَّ-يَصُبُّ",
+                            "arti" => "Menuangkan",
+                            "huruf" => array_unique(["صَ","بَّ","-","يَ","صُ","بُّ"])
+                        ],
+                        [
+                            "kata_arab" => "سَكَبَ-يَسْكُبُ",
+                            "arti" => "Menumpahkan",
+                            "huruf" => array_unique(["سَ","كَ","بَ","-","يَ","سْ","كُ","بُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَجَزَ-يَحْجِزُ",
+                            "arti" => "Memesan",
+                            "huruf" => array_unique(["حَ","جَ","زَ","-","يَ","حْ","جِ","زُ"])
+                        ],
+                        [
+                            "kata_arab" => "ضَيَّفَ-يُضَيِّفُ",
+                            "arti" => "Mentraktir",
+                            "huruf" => array_unique(["ضَ","يَّ","فَ","-","يُ","ضَ","يِّ","فُ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 45')){
+                    $data['materi'] = "Mufrodat 45";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 45");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "غِطَاءٌ",
+                            "arti" => "Tutup",
+                            "huruf" => array_unique(["غِ","طَ","ا","ءٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَطْعَمٌ",
+                            "arti" => "Tempat makan",
+                            "huruf" => array_unique(["مَ","طْ","عَ","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "طَابُوْرٌ",
+                            "arti" => "Antre",
+                            "huruf" => array_unique(["طَ","ا","بُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "وَجْبَةٌ",
+                            "arti" => "Jatah/porsi",
+                            "huruf" => array_unique(["وَ","جْ","بَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فَطُوْرٌ",
+                            "arti" => "Makan pagi",
+                            "huruf" => array_unique(["فَ","طُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "غَدَاءٌ",
+                            "arti" => "Makan siang",
+                            "huruf" => array_unique(["غَ","دَ","ا","ءٌ"])
+                        ],
+                        [
+                            "kata_arab" => "عَشَاءٌ",
+                            "arti" => "Makan malam",
+                            "huruf" => array_unique(["عَ","شَ","ا","ءٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 46')){
+                    $data['materi'] = "Mufrodat 46";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 46");
+                    $data['mufrodat'] =[
+                        [
+                            "kata_arab" => "أَطْعَمَ-يُطْعِمُ",
+                            "arti" => "Memberi makan",
+                            "huruf" => array_unique(["أَ","طْ","عَ","مَ","-","يُ","طْ","عِ","مُ"])
+                        ],
+                        [
+                            "kata_arab" => "شَمَّ-يَشُمُّ",
+                            "arti" => "Mencium (hidung)",
+                            "huruf" => array_unique(["شَ","مَّ","-","يَ","شُ","مُّ"])
+                        ],
+                        [
+                            "kata_arab" => "أَسْقَطَ-يُسْقِطُ",
+                            "arti" => "Menjatuhkan",
+                            "huruf" => array_unique(["أَ","سْ","قَ","طَ","-","يُ","سْ","قِ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَقَى-يَسْقِيْ",
+                            "arti" => "Memberi minum",
+                            "huruf" => array_unique(["سَ","قَ","ى","-","يَ","سْ","قِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "اِنْكَسَرَ-يَنْكَسِرُ",
+                            "arti" => "Pecah",
+                            "huruf" => array_unique(["اِ","نْ","كَ","سَ","رَ","-","يَ","نْ","كَ","سِ","رُ"])
+                        ],
+                        [
+                            "kata_arab" => "مَضَغَ-يَمْضَغُ",
+                            "arti" => "Mengunyah",
+                            "huruf" => array_unique(["مَ","ضَ","غَ","-","يَ","مْ","ضَ","غُ"])
+                        ],
+                        [
+                            "kata_arab" => "كَسَّرَ-يُكَسِّرُ",
+                            "arti" => "Memecahkan",
+                            "huruf" => array_unique(["كَ","سَّ","رَ","-","يُ","كَ","سِّ","رُ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 47')){
+                    $data['materi'] = "Mufrodat 47";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 47");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "فِنْجَانٌ",
+                            "arti" => "Cangkir",
+                            "huruf" => array_unique(["فِ","نْ","جَ","ا","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "جَالُوْنٌ",
+                            "arti" => "Galon",
+                            "huruf" => array_unique(["جَ","ا","لُ","وْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "عُلْبَةٌ",
+                            "arti" => "Kaleng",
+                            "huruf" => array_unique(["عُ","لْ","بَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَقْعَدٌ",
+                            "arti" => "Bangku",
+                            "huruf" => array_unique(["مَ","قْ","عَ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْعَقَةُ الرُّزِّ",
+                            "arti" => "Centong",
+                            "huruf" => array_unique(["مِ","لْ","عَ","قَ","ةُ","_","ا","ل","رُّ","زِّ"])
+                        ],
+                        [
+                            "kata_arab" => "مَطْبَخٌ",
+                            "arti" => "Dapur",
+                            "huruf" => array_unique(["مَ","طْ","بَ","خٌ"])
+                        ],
+                        [
+                            "kata_arab" => "طَعَامٌ",
+                            "arti" => "Makanan",
+                            "huruf" => array_unique(["طَ","عَ","ا","مٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 48')){
+                    $data['materi'] = "Mufrodat 48";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 48");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "خَلَّطَ-يُخَلِّطُ",
+                            "arti" => "Mencampurkan",
+                            "huruf" => array_unique(["خَ","لَّ","طَ","-","يُ","خَ","لِّ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِخْتَلَطَ-يَخْتَلِطُ",
+                            "arti" => "Bercampur",
+                            "huruf" => array_unique(["اِ","خْ","تَ","لَ","طَ","-","يَ","خْ","تَ","لِ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "زَادَ-يَزِيْدُ",
+                            "arti" => "Bertambah/menambahkan",
+                            "huruf" => array_unique(["زَ","ا","دَ","-","يَ","زِ","يْ","دُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَقَصَ-يَنْقُصُ",
+                            "arti" => "Berkurang/mengurangi",
+                            "huruf" => array_unique(["نَ","قَ","صَ","-","يَ","نْ","قُ","صُ"])
+                        ],
+                        [
+                            "kata_arab" => "بَلَعَ-يَبْلَعُ",
+                            "arti" => "Menelan",
+                            "huruf" => array_unique(["بَ","لَ","عَ","-","يَ","بْ","لَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَزَلَ-يَنْزِلُ",
+                            "arti" => "Turun",
+                            "huruf" => array_unique(["نَ","زَ","لَ","-","يَ","نْ","زِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "خَضَّ-يَخُضُّ",
+                            "arti" => "Mengocok",
+                            "huruf" => array_unique(["خَ","ضَّ","-","يَ","خُ","ضُّ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 49')){
+                    $data['materi'] = "Mufrodat 49";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 49");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "شَرَابٌ",
+                            "arti" => "Minuman",
+                            "huruf" => array_unique(["شَ","رَ","ا","بٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَقْهًى",
+                            "arti" => "Kafe",
+                            "huruf" => array_unique(["مَ","قْ","هً","ى"])
+                        ],
+                        [
+                            "kata_arab" => "جَفْنَةٌ",
+                            "arti" => "Mangkok",
+                            "huruf" => array_unique(["جَ","فْ","نَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "إِدَامٌ",
+                            "arti" => "Lauk",
+                            "huruf" => array_unique(["إِ","دَ","ا","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "بَهَارَةٌ",
+                            "arti" => "Bumbu",
+                            "huruf" => array_unique(["بَ","هَ","ا","رَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "صَلْصَةُ الصُّوْيَا",
+                            "arti" => "Kecap",
+                            "huruf" => array_unique(["صَ","لْ","صَ","ةُ","_","ا","ل","صُّ","وْ","يَ","ا"])
+                        ],
+                        [
+                            "kata_arab" => "شَطَّةٌ حَارَّةٌ",
+                            "arti" => "Saos",
+                            "huruf" => array_unique(["شَ","طَّ","ةٌ","_","حَ","ا","رَّ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 50')){
+                    $data['materi'] = "Mufrodat 50";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 50");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "قَدَّ-يَقُدُّ",
+                            "arti" => "Mengiris",
+                            "huruf" => array_unique(["قَ","دَّ","-","يَ","قُ","دُّ"])
+                        ],
+                        [
+                            "kata_arab" => "اِنْسَكَبَ-يَنْسَكِبُ",
+                            "arti" => "Tumpah",
+                            "huruf" => array_unique(["اِ","نْ","سَ","كَ","بَ","-","يَ","نْ","سَ","كِ","بُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَرَّكَ-يُحَرِّكُ",
+                            "arti" => "Mengaduk",
+                            "huruf" => array_unique(["حَ","رَّ","كَ","-","يُ","حَ","رِّ","كُ"])
+                        ],
+                        [
+                            "kata_arab" => "أَحْرَقَ-يُحْرِقُ",
+                            "arti" => "Membakar",
+                            "huruf" => array_unique(["أَ","حْ","رَ","قَ","-","يُ","حْ","رِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِحْتَرَقَ-يَحْتَرِقُ",
+                            "arti" => "Terbakar",
+                            "huruf" => array_unique(["اِ","حْ","تَ","رَ","قَ","-","يَ","حْ","تَ","رِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "أَزْعَجَ-يُزْعِجُ",
+                            "arti" => "Ribut",
+                            "huruf" => array_unique(["أَ","زْ","عَ","جَ","-","يُ","زْ","عِ","جُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِزْدَحَمَ-يَزْدَحِمُ",
+                            "arti" => "Ramai",
+                            "huruf" => array_unique(["اِ","زْ","دَ","حَ","مَ","-","يَ","زْ","دَ","حِ","مُ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 51')){
+                    $data['materi'] = "Mufrodat 51";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 51");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "رَائِحَةٌ",
+                            "arti" => "Aroma",
+                            "huruf" => array_unique(["رَ","ا","ئِ","حَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زِيْرٌ",
+                            "arti" => "Tong",
+                            "huruf" => array_unique(["زِ","يْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْحٌ",
+                            "arti" => "Garam",
+                            "huruf" => array_unique(["مِ","لْ","حٌ"])
+                        ],
+                        [
+                            "kata_arab" => "سُكَّرٌ",
+                            "arti" => "Gula",
+                            "huruf" => array_unique(["سُ","كَّ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زَيْتٌ",
+                            "arti" => "Minyak",
+                            "huruf" => array_unique(["زَ","يْ","تٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَرَقَةٌ",
+                            "arti" => "Kuah",
+                            "huruf" => array_unique(["مَ","رَ","قَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 52')){
+                    $data['materi'] = "Mufrodat 52";
+                    $data['tema'] = "Tempat Makan dan Dapur";
+                    $data['title'] = "Tema 4";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 52");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "وَزَّعَ-يُوَزِّعُ",
+                            "arti" => "Membagikan",
+                            "huruf" => array_unique(["وَ","زَّ","عَ","-","يُ","وَ","زِّ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "طَمَعَ-يَطْمَعُ",
+                            "arti" => "Tamak/rakus",
+                            "huruf" => array_unique(["طَ","مَ","عَ","-","يَ","طْ","مَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "قَنَعَ-يَقْنَعُ",
+                            "arti" => "Cukup",
+                            "huruf" => array_unique(["قَ","نَ","عَ","-","يَ","قْ","نَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِشْتَرَى-يَشْتَرِيْ",
+                            "arti" => "Membeli",
+                            "huruf" => array_unique(["اِ","شْ","تَ","رَ","ى","-","يَ","شْ","تَ","رِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "بَاعَ-يَبِيْعُ",
+                            "arti" => "Menjual",
+                            "huruf" => array_unique(["بَ","ا","عَ","-","يَ","بِ","يْ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَصَلَ-يَحْصُلُ عَلَى",
+                            "arti" => "Medapatkan",
+                            "huruf" => array_unique(["حَ","صَ","لَ","-","يَ","حْ","صُ","لُ","_","عَ","لَ","ى"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 53')){
+                    $data['materi'] = "Mufrodat 53";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 53");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "دَلْوٌ",
+                            "arti" => "Ember",
+                            "huruf" => array_unique(["دَ","لْ","وٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِغْرَفَةٌ",
+                            "arti" => "Gayung",
+                            "huruf" => array_unique(["مِ","غْ","رَ","فَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فُرْشَةُ الْأَسْنَانِ",
+                            "arti" => "Sikat gigi",
+                            "huruf" => array_unique(["فُ","رْ","شَ","ةُ","_","ا","لْ","أَ","سْ","نَ","ا","نِ"])
+                        ],
+                        [
+                            "kata_arab" => "مَعْجُوْنُ الْأَسْنَانِ",
+                            "arti" => "Odol",
+                            "huruf" => array_unique(["مَ","عْ","جُ","وْ","نُ","_","ا","لْ","أَ","سْ","نَ","ا","نِ"])
+                        ],
+                        [
+                            "kata_arab" => "صَابُوْنَةٌ",
+                            "arti" => "Sabun",
+                            "huruf" => array_unique(["صَ","ا","بُ","وْ","نَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "شَامْبُوْ",
+                            "arti" => "Sampo",
+                            "huruf" => array_unique(["شَ","ا","مْ","بُ","وْ"])
+                        ],
+                        [
+                            "kata_arab" => "مِنْشَفَةٌ",
+                            "arti" => "Handuk",
+                            "huruf" => array_unique(["مِ","نْ","شَ","فَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 54')){
+                    $data['materi'] = "Mufrodat 54";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 54");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "اِغْتَسَلَ-يَغْتَسِلُ",
+                            "arti" => "Mandi",
+                            "huruf" => array_unique(["اِ","غْ","تَ","سَ","لَ","-","يَ","غْ","تَ","سِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "فَرَّشَ-يُفَرِّشُ",
+                            "arti" => "Menyikat",
+                            "huruf" => array_unique(["فَ","رَّ","شَ","-","يُ","فَ","رِّ","شُ"])
+                        ],
+                        [
+                            "kata_arab" => "تَسَوَّكَ-يَتَسَوَّكُ",
+                            "arti" => "Menyikat gigi",
+                            "huruf" => array_unique(["تَ","سَ","وَّ","كَ","-","يَ","تَ","سَ","وَّ","كُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَقَى-يَسْقِيْ",
+                            "arti" => "Menyiram",
+                            "huruf" => array_unique(["سَ","قَ","ى","-","يَ","سْ","قِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "بَالَ-يَبُوْلُ",
+                            "arti" => "BAK",
+                            "huruf" => array_unique(["بَ","ا","لَ","-","يَ","بُ","وْ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "تَغَوَّطَ-يَتَغَوَّطُ",
+                            "arti" => "BAB",
+                            "huruf" => array_unique(["تَ","غَ","وَّ","طَ","-","يَ","تَ","غَ","وَّ","طُ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 55')){
+                    $data['materi'] = "Mufrodat 55";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 55");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "صَنْبُوْرٌ",
+                            "arti" => "Kran air",
+                            "huruf" => array_unique(["صَ","نْ","بُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "حَمَّامٌ",
+                            "arti" => "Kamar mandi",
+                            "huruf" => array_unique(["حَ","مَّ","ا","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فُرْشَةٌ",
+                            "arti" => "Sikat",
+                            "huruf" => array_unique(["فُ","رْ","شَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مُوْسَى",
+                            "arti" => "Silet cukur",
+                            "huruf" => array_unique(["مُ","وْ","سَ","ى"])
+                        ],
+                        [
+                            "kata_arab" => "قَضَاءُ الْحَاجَةِ",
+                            "arti" => "Buang hajat",
+                            "huruf" => array_unique(["قَ","ضَ","ا","ءُ","_","ا","لْ","حَ","ا","جَ","ةِ"])
+                        ],
+                        [
+                            "kata_arab" => "مِزْلَاجٌ",
+                            "arti" => "Slot (kunci kamar)",
+                            "huruf" => array_unique(["مِ","زْ","لَ","ا","جٌ"])
+                        ],
+                        [
+                            "kata_arab" => "دَوْرَةُ الْمِيَاهِ",
+                            "arti" => "Toilet",
+                            "huruf" => array_unique(["دَ","وْ","رَ","ةُ","_","ا","لْ","مِ","يَ","ا","هِ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 56')){
+                    $data['materi'] = "Mufrodat 56";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 56");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "سَالَ-يَسِيْلُ",
+                            "arti" => "Mengalir",
+                            "huruf" => array_unique(["سَ","ا","لَ","-","يَ","سِ","يْ",'لُ'])
+                        ],
+                        [
+                            "kata_arab" => "مَسَحَ-يَمْسَحُ",
+                            "arti" => "Mengusap",
+                            "huruf" => array_unique(["مَ","سَ","حَ","-","يَ","مْ","سَ","حُ"])
+                        ],
+                        [
+                            "kata_arab" => "قَرْفَصَ-يُقَرْفِصُ",
+                            "arti" => "Jongkok",
+                            "huruf" => array_unique(["قَ","رْ","فَ","صَ","-","يُ","قَ","رْ","فِ","صُ"])
+                        ],
+                        [
+                            "kata_arab" => "غَسَلَ-يَغْسِلُ",
+                            "arti" => "Mencuci",
+                            "huruf" => array_unique(["غَ","سَ","لَ","-","يَ","غْ","سِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَقَعَ-يَنْقَعُ",
+                            "arti" => "Merendam",
+                            "huruf" => array_unique(["نَ","قَ","عَ","-","يَ","نْ","قَ",'عُ'])
+                        ],
+                        [
+                            "kata_arab" => "رَشَّ-يَرُشُّ",
+                            "arti" => "Menyemprot",
+                            "huruf" => array_unique(["رَ","شَّ","-","يَ","رُ","شُّ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 57')){
+                    $data['materi'] = "Mufrodat 57";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 57");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "زَبَدٌ",
+                            "arti" => "Busa",
+                            "huruf" => array_unique(["زَ","بَ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "أَدَاةٌ",
+                            "arti" => "Peralatan",
+                            "huruf" => array_unique(["أَ","دَ","ا","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِعْلَاقٌ",
+                            "arti" => "Gantungan",
+                            "huruf" => array_unique(["مِ","عْ","لَ","ا","قٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَادَّةٌ مُنَظِّفَةٌ",
+                            "arti" => "Detergen",
+                            "huruf" => array_unique(["مَ","ا","دَّ","ةٌ","_","مُ","نَ","ظِّ","فَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "بِرْكَةٌ",
+                            "arti" => "Bak",
+                            "huruf" => array_unique(["بِ","رْ","كَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "خُرْطُوْمٌ",
+                            "arti" => "Selang",
+                            "huruf" => array_unique(["خُ","رْ","طُ","وْ","مٌ"])
+                        ]
+                    ];
+                } else if($_GET['id'] == MD5('Mufrodat 58')){
+                    $data['materi'] = "Mufrodat 58";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
+                    $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat 58");
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "اِسْتَنْجَى-يَسْتَنْجِيْ",
+                            "arti" => "Cebok",
+                            "huruf" => array_unique(["اِ","سْ","تَ","نْ","جَ","ى","-","يَ","سْ","تَ","نْ","جِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "عَصَرَ-يَعْصِرُ",
+                            "arti" => "Memeras",
+                            "huruf" => array_unique(["عَ","صَ","رَ","-","يَ","عْ","صِ",'رُ'])
+                        ],
+                        [
+                            "kata_arab" => "تَمَضْمَضَ-يَتَمَضْمَضَ",
+                            "arti" => "Berkumur-kumur",
+                            "huruf" => array_unique(["تَ","مَ","ضْ","مَ","ضَ","-","يَ","تَ","مَ","ضْ","مَ",'ضَ'])
+                        ],
+                        [
+                            "kata_arab" => "اِنْزَلَقَ-يَنْزَلِقُ",
+                            "arti" => "Terpeleset",
+                            "huruf" => array_unique(["اِ","نْ","زَ","لَ","قَ","-","يَ","نْ","زَ","لِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِسْتَقْذَرَ-يَسْتَقْذِرُ",
+                            "arti" => "Merasa jijik",
+                            "huruf" => array_unique(["اِ","سْ","تَ","قْ","ذَ","رَ","-","يَ","سْ","تَ","قْ","ذِ","رُ"])
+                        ]
+                    ];
                 } else if($_GET['id'] == MD5('Mufrodat ')){
                     $data['materi'] = "Mufrodat ";
-                    $data['tema'] = "Masjid";
-                    $data['title'] = "Tema 3";
+                    $data['tema'] = "Kamar Mandi";
+                    $data['title'] = "Tema 5";
                     $data['latihan'] = $this->latihan_mufrodat($id, "Mufrodat ");
                     $data['mufrodat'] = [
                     ];
@@ -1857,7 +2611,12 @@ class Mufrodat extends CI_CONTROLLER{
 
             } else if (!empty($_GET['latihan'])) {
                 $urut = $_GET['i'];
-                if($_GET['latihan'] == MD5('Mufrodat 1')){
+                if($_GET['latihan'] == MD5('Murojaah')){
+                    $data['materi'] = "Murojaah Mufrodat";
+                    $data['tema'] = "Murojaah";
+                    $data['redirect'] = "mufrodat/listmurojaah";
+                    $data['mufrodat'] = $this->Admin_model->get_all("murojaah", ["id_user" => $id]);
+                } else if($_GET['latihan'] == MD5('Mufrodat 1')){
                     $data['materi'] = "Mufrodat 1";
                     $data['tema'] = "Tema 1";
                     $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 1");
@@ -3582,10 +4341,713 @@ class Mufrodat extends CI_CONTROLLER{
                             "huruf" => array_unique(["خَ","شَ","عَ","-","يَ","خْ","شَ","عُ"])
                         ]
                     ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 41')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 41");
+                    $data['materi'] = "Mufrodat 41";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "مَوْقِدٌ",
+                            "arti" => "Kompor",
+                            "huruf" => array_unique(["مَ","وْ","قِ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِقْلَاةٌ",
+                            "arti" => "Wajan",
+                            "huruf" => array_unique(["مِ","قْ","لَ","ا","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "غَازٌ",
+                            "arti" => "Gas",
+                            "huruf" => array_unique(["غَ","ا","زٌ"])
+                        ],
+                        [
+                            "kata_arab" => "صَحْنٌ",
+                            "arti" => "Piring",
+                            "huruf" => array_unique(["صَ","حْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "كُوْبٌ",
+                            "arti" => "Gelas",
+                            "huruf" => array_unique(["كُ","وْ","بٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْعَقَةٌ",
+                            "arti" => "Sendok",
+                            "huruf" => array_unique(["مِ","لْ","عَ","قَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَائِدَةٌ",
+                            "arti" => "Meja makan",
+                            "huruf" => array_unique(["مَ","ا","ئِ","دَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 42')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 42");
+                    $data['materi'] = "Mufrodat 42";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            " kata_arab" => "أَكَلَ-يَأْكُلُ",
+                            "arti" => "Makan",
+                            "huruf" => array_unique(["أَ","كَ","لَ","-","يَ","أْ","كُ","لُ"])
+                        ],
+                        [
+                            " kata_arab" => "شَرِبَ-يَشْرَبُ",
+                            "arti" => "Minum",
+                            "huruf" => array_unique(["شَ","رِ","بَ","-","يَ","شْ","رَ","بُ"])
+                        ],
+                        [
+                            " kata_arab" => "جَاعَ-يَجُوْعُ",
+                            "arti" => "Lapar",
+                            "huruf" => array_unique(["جَ","ا","عَ","-","يَ","جُ","وْ","عُ"])
+                        ],
+                        [
+                            " kata_arab" => "عَطِشَ-يَعْطَشُ",
+                            "arti" => "Haus",
+                            "huruf" => array_unique(["عَ","طِ","شَ","-","يَ","عْ","طَ","شُ"])
+                        ],
+                        [
+                            " kata_arab" => "شَبِعَ-يَشْبَعُ",
+                            "arti" => "Kenyang",
+                            "huruf" => array_unique(["شَ","بِ","عَ","-","يَ","شْ","بَ","عُ"])
+                        ],
+                        [
+                            " kata_arab" => "طَبَخَ-يَطْبَخُ",
+                            "arti" => "Memasak",
+                            "huruf" => array_unique(["طَ","بَ","خَ","-","يَ","طْ","بَ","خُ"])
+                        ],
+                        [
+                            " kata_arab" => "غَلَى-يَغْلِيْ",
+                            "arti" => "Mendidih",
+                            "huruf" => array_unique(["غَ","لَ","ى","-","يَ","غْ","لِ","يْ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 43')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 43");
+                    $data['materi'] = "Mufrodat 43";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "شَوْكَةٌ",
+                            "arti" => "Garpu",
+                            "huruf" => array_unique(["شَ","وْ","كَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قَصْعَةٌ",
+                            "arti" => "Nampan",
+                            "huruf" => array_unique(["قَ","صْ","عَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قِدْرٌ",
+                            "arti" => "Panci",
+                            "huruf" => array_unique(["قِ","دْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "سِكِّيْنٌ",
+                            "arti" => "Pisau",
+                            "huruf" => array_unique(["سِ","كِّ","يْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زَمْزَمِيَّةٌ",
+                            "arti" => "Termos",
+                            "huruf" => array_unique(["زَ","مْ","زَ","مِ","يَّ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "ثَلَّاجَةٌ",
+                            "arti" => "Kulkas",
+                            "huruf" => array_unique(["ثَ","لَّ","ا","جَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "قَارُوْرَةٌ",
+                            "arti" => "Botol",
+                            "huruf" => array_unique(["قَ","ا","رُ","وْ","رَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 44')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 44");
+                    $data['materi'] = "Mufrodat 44";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "قَلَى-يَقْلِيْ",
+                            "arti" => "Menggoreng",
+                            "huruf" => array_unique(["قَ","لَ","ى","-","يَ","قْ","لِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "قَطَعَ-يَقْطَعُ",
+                            "arti" => "Memotong",
+                            "huruf" => array_unique(["قَ","طَ","عَ","-","يَ","قْ","طَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَلَقَ-يَسْلُقُ",
+                            "arti" => "Merebus",
+                            "huruf" => array_unique(["سَ","لَ","قَ","-","يَ","سْ","لُ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "صَبَّ-يَصُبُّ",
+                            "arti" => "Menuangkan",
+                            "huruf" => array_unique(["صَ","بَّ","-","يَ","صُ","بُّ"])
+                        ],
+                        [
+                            "kata_arab" => "سَكَبَ-يَسْكُبُ",
+                            "arti" => "Menumpahkan",
+                            "huruf" => array_unique(["سَ","كَ","بَ","-","يَ","سْ","كُ","بُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَجَزَ-يَحْجِزُ",
+                            "arti" => "Memesan",
+                            "huruf" => array_unique(["حَ","جَ","زَ","-","يَ","حْ","جِ","زُ"])
+                        ],
+                        [
+                            "kata_arab" => "ضَيَّفَ-يُضَيِّفُ",
+                            "arti" => "Mentraktir",
+                            "huruf" => array_unique(["ضَ","يَّ","فَ","-","يُ","ضَ","يِّ","فُ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 45')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 45");
+                    $data['materi'] = "Mufrodat 45";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "غِطَاءٌ",
+                            "arti" => "Tutup",
+                            "huruf" => array_unique(["غِ","طَ","ا","ءٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَطْعَمٌ",
+                            "arti" => "Tempat makan",
+                            "huruf" => array_unique(["مَ","طْ","عَ","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "طَابُوْرٌ",
+                            "arti" => "Antre",
+                            "huruf" => array_unique(["طَ","ا","بُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "وَجْبَةٌ",
+                            "arti" => "Jatah/porsi",
+                            "huruf" => array_unique(["وَ","جْ","بَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فَطُوْرٌ",
+                            "arti" => "Makan pagi",
+                            "huruf" => array_unique(["فَ","طُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "غَدَاءٌ",
+                            "arti" => "Makan siang",
+                            "huruf" => array_unique(["غَ","دَ","ا","ءٌ"])
+                        ],
+                        [
+                            "kata_arab" => "عَشَاءٌ",
+                            "arti" => "Makan malam",
+                            "huruf" => array_unique(["عَ","شَ","ا","ءٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 46')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 46");
+                    $data['materi'] = "Mufrodat 46";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] =[
+                        [
+                            "kata_arab" => "أَطْعَمَ-يُطْعِمُ",
+                            "arti" => "Memberi makan",
+                            "huruf" => array_unique(["أَ","طْ","عَ","مَ","-","يُ","طْ","عِ","مُ"])
+                        ],
+                        [
+                            "kata_arab" => "شَمَّ-يَشُمُّ",
+                            "arti" => "Mencium (hidung)",
+                            "huruf" => array_unique(["شَ","مَّ","-","يَ","شُ","مُّ"])
+                        ],
+                        [
+                            "kata_arab" => "أَسْقَطَ-يُسْقِطُ",
+                            "arti" => "Menjatuhkan",
+                            "huruf" => array_unique(["أَ","سْ","قَ","طَ","-","يُ","سْ","قِ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَقَى-يَسْقِيْ",
+                            "arti" => "Memberi minum",
+                            "huruf" => array_unique(["سَ","قَ","ى","-","يَ","سْ","قِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "اِنْكَسَرَ-يَنْكَسِرُ",
+                            "arti" => "Pecah",
+                            "huruf" => array_unique(["اِ","نْ","كَ","سَ","رَ","-","يَ","نْ","كَ","سِ","رُ"])
+                        ],
+                        [
+                            "kata_arab" => "مَضَغَ-يَمْضَغُ",
+                            "arti" => "Mengunyah",
+                            "huruf" => array_unique(["مَ","ضَ","غَ","-","يَ","مْ","ضَ","غُ"])
+                        ],
+                        [
+                            "kata_arab" => "كَسَّرَ-يُكَسِّرُ",
+                            "arti" => "Memecahkan",
+                            "huruf" => array_unique(["كَ","سَّ","رَ","-","يُ","كَ","سِّ","رُ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 47')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 47");
+                    $data['materi'] = "Mufrodat 47";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "فِنْجَانٌ",
+                            "arti" => "Cangkir",
+                            "huruf" => array_unique(["فِ","نْ","جَ","ا","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "جَالُوْنٌ",
+                            "arti" => "Galon",
+                            "huruf" => array_unique(["جَ","ا","لُ","وْ","نٌ"])
+                        ],
+                        [
+                            "kata_arab" => "عُلْبَةٌ",
+                            "arti" => "Kaleng",
+                            "huruf" => array_unique(["عُ","لْ","بَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَقْعَدٌ",
+                            "arti" => "Bangku",
+                            "huruf" => array_unique(["مَ","قْ","عَ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْعَقَةُ الرُّزِّ",
+                            "arti" => "Centong",
+                            "huruf" => array_unique(["مِ","لْ","عَ","قَ","ةُ","_","ا","ل","رُّ","زِّ"])
+                        ],
+                        [
+                            "kata_arab" => "مَطْبَخٌ",
+                            "arti" => "Dapur",
+                            "huruf" => array_unique(["مَ","طْ","بَ","خٌ"])
+                        ],
+                        [
+                            "kata_arab" => "طَعَامٌ",
+                            "arti" => "Makanan",
+                            "huruf" => array_unique(["طَ","عَ","ا","مٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 48')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 48");
+                    $data['materi'] = "Mufrodat 48";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "خَلَّطَ-يُخَلِّطُ",
+                            "arti" => "Mencampurkan",
+                            "huruf" => array_unique(["خَ","لَّ","طَ","-","يُ","خَ","لِّ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِخْتَلَطَ-يَخْتَلِطُ",
+                            "arti" => "Bercampur",
+                            "huruf" => array_unique(["اِ","خْ","تَ","لَ","طَ","-","يَ","خْ","تَ","لِ","طُ"])
+                        ],
+                        [
+                            "kata_arab" => "زَادَ-يَزِيْدُ",
+                            "arti" => "Bertambah/menambahkan",
+                            "huruf" => array_unique(["زَ","ا","دَ","-","يَ","زِ","يْ","دُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَقَصَ-يَنْقُصُ",
+                            "arti" => "Berkurang/mengurangi",
+                            "huruf" => array_unique(["نَ","قَ","صَ","-","يَ","نْ","قُ","صُ"])
+                        ],
+                        [
+                            "kata_arab" => "بَلَعَ-يَبْلَعُ",
+                            "arti" => "Menelan",
+                            "huruf" => array_unique(["بَ","لَ","عَ","-","يَ","بْ","لَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَزَلَ-يَنْزِلُ",
+                            "arti" => "Turun",
+                            "huruf" => array_unique(["نَ","زَ","لَ","-","يَ","نْ","زِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "خَضَّ-يَخُضُّ",
+                            "arti" => "Mengocok",
+                            "huruf" => array_unique(["خَ","ضَّ","-","يَ","خُ","ضُّ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 49')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 49");
+                    $data['materi'] = "Mufrodat 49";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "شَرَابٌ",
+                            "arti" => "Minuman",
+                            "huruf" => array_unique(["شَ","رَ","ا","بٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَقْهًى",
+                            "arti" => "Kafe",
+                            "huruf" => array_unique(["مَ","قْ","هً","ى"])
+                        ],
+                        [
+                            "kata_arab" => "جَفْنَةٌ",
+                            "arti" => "Mangkok",
+                            "huruf" => array_unique(["جَ","فْ","نَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "إِدَامٌ",
+                            "arti" => "Lauk",
+                            "huruf" => array_unique(["إِ","دَ","ا","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "بَهَارَةٌ",
+                            "arti" => "Bumbu",
+                            "huruf" => array_unique(["بَ","هَ","ا","رَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "صَلْصَةُ الصُّوْيَا",
+                            "arti" => "Kecap",
+                            "huruf" => array_unique(["صَ","لْ","صَ","ةُ","_","ا","ل","صُّ","وْ","يَ","ا"])
+                        ],
+                        [
+                            "kata_arab" => "شَطَّةٌ حَارَّةٌ",
+                            "arti" => "Saos",
+                            "huruf" => array_unique(["شَ","طَّ","ةٌ","_","حَ","ا","رَّ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 50')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 50");
+                    $data['materi'] = "Mufrodat 50";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "قَدَّ-يَقُدُّ",
+                            "arti" => "Mengiris",
+                            "huruf" => array_unique(["قَ","دَّ","-","يَ","قُ","دُّ"])
+                        ],
+                        [
+                            "kata_arab" => "اِنْسَكَبَ-يَنْسَكِبُ",
+                            "arti" => "Tumpah",
+                            "huruf" => array_unique(["اِ","نْ","سَ","كَ","بَ","-","يَ","نْ","سَ","كِ","بُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَرَّكَ-يُحَرِّكُ",
+                            "arti" => "Mengaduk",
+                            "huruf" => array_unique(["حَ","رَّ","كَ","-","يُ","حَ","رِّ","كُ"])
+                        ],
+                        [
+                            "kata_arab" => "أَحْرَقَ-يُحْرِقُ",
+                            "arti" => "Membakar",
+                            "huruf" => array_unique(["أَ","حْ","رَ","قَ","-","يُ","حْ","رِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِحْتَرَقَ-يَحْتَرِقُ",
+                            "arti" => "Terbakar",
+                            "huruf" => array_unique(["اِ","حْ","تَ","رَ","قَ","-","يَ","حْ","تَ","رِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "أَزْعَجَ-يُزْعِجُ",
+                            "arti" => "Ribut",
+                            "huruf" => array_unique(["أَ","زْ","عَ","جَ","-","يُ","زْ","عِ","جُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِزْدَحَمَ-يَزْدَحِمُ",
+                            "arti" => "Ramai",
+                            "huruf" => array_unique(["اِ","زْ","دَ","حَ","مَ","-","يَ","زْ","دَ","حِ","مُ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 51')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 51");
+                    $data['materi'] = "Mufrodat 51";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "رَائِحَةٌ",
+                            "arti" => "Aroma",
+                            "huruf" => array_unique(["رَ","ا","ئِ","حَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زِيْرٌ",
+                            "arti" => "Tong",
+                            "huruf" => array_unique(["زِ","يْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِلْحٌ",
+                            "arti" => "Garam",
+                            "huruf" => array_unique(["مِ","لْ","حٌ"])
+                        ],
+                        [
+                            "kata_arab" => "سُكَّرٌ",
+                            "arti" => "Gula",
+                            "huruf" => array_unique(["سُ","كَّ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "زَيْتٌ",
+                            "arti" => "Minyak",
+                            "huruf" => array_unique(["زَ","يْ","تٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَرَقَةٌ",
+                            "arti" => "Kuah",
+                            "huruf" => array_unique(["مَ","رَ","قَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 52')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 52");
+                    $data['materi'] = "Mufrodat 52";
+                    $data['tema'] = "Tema 4";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "وَزَّعَ-يُوَزِّعُ",
+                            "arti" => "Membagikan",
+                            "huruf" => array_unique(["وَ","زَّ","عَ","-","يُ","وَ","زِّ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "طَمَعَ-يَطْمَعُ",
+                            "arti" => "Tamak/rakus",
+                            "huruf" => array_unique(["طَ","مَ","عَ","-","يَ","طْ","مَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "قَنَعَ-يَقْنَعُ",
+                            "arti" => "Cukup",
+                            "huruf" => array_unique(["قَ","نَ","عَ","-","يَ","قْ","نَ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِشْتَرَى-يَشْتَرِيْ",
+                            "arti" => "Membeli",
+                            "huruf" => array_unique(["اِ","شْ","تَ","رَ","ى","-","يَ","شْ","تَ","رِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "بَاعَ-يَبِيْعُ",
+                            "arti" => "Menjual",
+                            "huruf" => array_unique(["بَ","ا","عَ","-","يَ","بِ","يْ","عُ"])
+                        ],
+                        [
+                            "kata_arab" => "حَصَلَ-يَحْصُلُ عَلَى",
+                            "arti" => "Medapatkan",
+                            "huruf" => array_unique(["حَ","صَ","لَ","-","يَ","حْ","صُ","لُ","_","عَ","لَ","ى"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 53')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 53");
+                    $data['materi'] = "Mufrodat 53";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "دَلْوٌ",
+                            "arti" => "Ember",
+                            "huruf" => array_unique(["دَ","لْ","وٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِغْرَفَةٌ",
+                            "arti" => "Gayung",
+                            "huruf" => array_unique(["مِ","غْ","رَ","فَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فُرْشَةُ الْأَسْنَانِ",
+                            "arti" => "Sikat gigi",
+                            "huruf" => array_unique(["فُ","رْ","شَ","ةُ","_","ا","لْ","أَ","سْ","نَ","ا","نِ"])
+                        ],
+                        [
+                            "kata_arab" => "مَعْجُوْنُ الْأَسْنَانِ",
+                            "arti" => "Odol",
+                            "huruf" => array_unique(["مَ","عْ","جُ","وْ","نُ","_","ا","لْ","أَ","سْ","نَ","ا","نِ"])
+                        ],
+                        [
+                            "kata_arab" => "صَابُوْنَةٌ",
+                            "arti" => "Sabun",
+                            "huruf" => array_unique(["صَ","ا","بُ","وْ","نَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "شَامْبُوْ",
+                            "arti" => "Sampo",
+                            "huruf" => array_unique(["شَ","ا","مْ","بُ","وْ"])
+                        ],
+                        [
+                            "kata_arab" => "مِنْشَفَةٌ",
+                            "arti" => "Handuk",
+                            "huruf" => array_unique(["مِ","نْ","شَ","فَ","ةٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 54')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 54");
+                    $data['materi'] = "Mufrodat 54";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "اِغْتَسَلَ-يَغْتَسِلُ",
+                            "arti" => "Mandi",
+                            "huruf" => array_unique(["اِ","غْ","تَ","سَ","لَ","-","يَ","غْ","تَ","سِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "فَرَّشَ-يُفَرِّشُ",
+                            "arti" => "Menyikat",
+                            "huruf" => array_unique(["فَ","رَّ","شَ","-","يُ","فَ","رِّ","شُ"])
+                        ],
+                        [
+                            "kata_arab" => "تَسَوَّكَ-يَتَسَوَّكُ",
+                            "arti" => "Menyikat gigi",
+                            "huruf" => array_unique(["تَ","سَ","وَّ","كَ","-","يَ","تَ","سَ","وَّ","كُ"])
+                        ],
+                        [
+                            "kata_arab" => "سَقَى-يَسْقِيْ",
+                            "arti" => "Menyiram",
+                            "huruf" => array_unique(["سَ","قَ","ى","-","يَ","سْ","قِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "بَالَ-يَبُوْلُ",
+                            "arti" => "BAK",
+                            "huruf" => array_unique(["بَ","ا","لَ","-","يَ","بُ","وْ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "تَغَوَّطَ-يَتَغَوَّطُ",
+                            "arti" => "BAB",
+                            "huruf" => array_unique(["تَ","غَ","وَّ","طَ","-","يَ","تَ","غَ","وَّ","طُ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 55')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 55");
+                    $data['materi'] = "Mufrodat 55";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "صَنْبُوْرٌ",
+                            "arti" => "Kran air",
+                            "huruf" => array_unique(["صَ","نْ","بُ","وْ","رٌ"])
+                        ],
+                        [
+                            "kata_arab" => "حَمَّامٌ",
+                            "arti" => "Kamar mandi",
+                            "huruf" => array_unique(["حَ","مَّ","ا","مٌ"])
+                        ],
+                        [
+                            "kata_arab" => "فُرْشَةٌ",
+                            "arti" => "Sikat",
+                            "huruf" => array_unique(["فُ","رْ","شَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مُوْسَى",
+                            "arti" => "Silet cukur",
+                            "huruf" => array_unique(["مُ","وْ","سَ","ى"])
+                        ],
+                        [
+                            "kata_arab" => "قَضَاءُ الْحَاجَةِ",
+                            "arti" => "Buang hajat",
+                            "huruf" => array_unique(["قَ","ضَ","ا","ءُ","_","ا","لْ","حَ","ا","جَ","ةِ"])
+                        ],
+                        [
+                            "kata_arab" => "مِزْلَاجٌ",
+                            "arti" => "Slot (kunci kamar)",
+                            "huruf" => array_unique(["مِ","زْ","لَ","ا","جٌ"])
+                        ],
+                        [
+                            "kata_arab" => "دَوْرَةُ الْمِيَاهِ",
+                            "arti" => "Toilet",
+                            "huruf" => array_unique(["دَ","وْ","رَ","ةُ","_","ا","لْ","مِ","يَ","ا","هِ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 56')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 56");
+                    $data['materi'] = "Mufrodat 56";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "سَالَ-يَسِيْلُ",
+                            "arti" => "Mengalir",
+                            "huruf" => array_unique(["سَ","ا","لَ","-","يَ","سِ","يْ",'لُ'])
+                        ],
+                        [
+                            "kata_arab" => "مَسَحَ-يَمْسَحُ",
+                            "arti" => "Mengusap",
+                            "huruf" => array_unique(["مَ","سَ","حَ","-","يَ","مْ","سَ","حُ"])
+                        ],
+                        [
+                            "kata_arab" => "قَرْفَصَ-يُقَرْفِصُ",
+                            "arti" => "Jongkok",
+                            "huruf" => array_unique(["قَ","رْ","فَ","صَ","-","يُ","قَ","رْ","فِ","صُ"])
+                        ],
+                        [
+                            "kata_arab" => "غَسَلَ-يَغْسِلُ",
+                            "arti" => "Mencuci",
+                            "huruf" => array_unique(["غَ","سَ","لَ","-","يَ","غْ","سِ","لُ"])
+                        ],
+                        [
+                            "kata_arab" => "نَقَعَ-يَنْقَعُ",
+                            "arti" => "Merendam",
+                            "huruf" => array_unique(["نَ","قَ","عَ","-","يَ","نْ","قَ",'عُ'])
+                        ],
+                        [
+                            "kata_arab" => "رَشَّ-يَرُشُّ",
+                            "arti" => "Menyemprot",
+                            "huruf" => array_unique(["رَ","شَّ","-","يَ","رُ","شُّ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 57')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 57");
+                    $data['materi'] = "Mufrodat 57";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "زَبَدٌ",
+                            "arti" => "Busa",
+                            "huruf" => array_unique(["زَ","بَ","دٌ"])
+                        ],
+                        [
+                            "kata_arab" => "أَدَاةٌ",
+                            "arti" => "Peralatan",
+                            "huruf" => array_unique(["أَ","دَ","ا","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مِعْلَاقٌ",
+                            "arti" => "Gantungan",
+                            "huruf" => array_unique(["مِ","عْ","لَ","ا","قٌ"])
+                        ],
+                        [
+                            "kata_arab" => "مَادَّةٌ مُنَظِّفَةٌ",
+                            "arti" => "Detergen",
+                            "huruf" => array_unique(["مَ","ا","دَّ","ةٌ","_","مُ","نَ","ظِّ","فَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "بِرْكَةٌ",
+                            "arti" => "Bak",
+                            "huruf" => array_unique(["بِ","رْ","كَ","ةٌ"])
+                        ],
+                        [
+                            "kata_arab" => "خُرْطُوْمٌ",
+                            "arti" => "Selang",
+                            "huruf" => array_unique(["خُ","رْ","طُ","وْ","مٌ"])
+                        ]
+                    ];
+                } else if($_GET['latihan'] == MD5('Mufrodat 58')){
+                    $data['redirect'] = "mufrodat?id=".MD5("Mufrodat 58");
+                    $data['materi'] = "Mufrodat 58";
+                    $data['tema'] = "Tema 5";
+                    $data['mufrodat'] = [
+                        [
+                            "kata_arab" => "اِسْتَنْجَى-يَسْتَنْجِيْ",
+                            "arti" => "Cebok",
+                            "huruf" => array_unique(["اِ","سْ","تَ","نْ","جَ","ى","-","يَ","سْ","تَ","نْ","جِ","يْ"])
+                        ],
+                        [
+                            "kata_arab" => "عَصَرَ-يَعْصِرُ",
+                            "arti" => "Memeras",
+                            "huruf" => array_unique(["عَ","صَ","رَ","-","يَ","عْ","صِ",'رُ'])
+                        ],
+                        [
+                            "kata_arab" => "تَمَضْمَضَ-يَتَمَضْمَضَ",
+                            "arti" => "Berkumur-kumur",
+                            "huruf" => array_unique(["تَ","مَ","ضْ","مَ","ضَ","-","يَ","تَ","مَ","ضْ","مَ",'ضَ'])
+                        ],
+                        [
+                            "kata_arab" => "اِنْزَلَقَ-يَنْزَلِقُ",
+                            "arti" => "Terpeleset",
+                            "huruf" => array_unique(["اِ","نْ","زَ","لَ","قَ","-","يَ","نْ","زَ","لِ","قُ"])
+                        ],
+                        [
+                            "kata_arab" => "اِسْتَقْذَرَ-يَسْتَقْذِرُ",
+                            "arti" => "Merasa jijik",
+                            "huruf" => array_unique(["اِ","سْ","تَ","قْ","ذَ","رَ","-","يَ","سْ","تَ","قْ","ذِ","رُ"])
+                        ]
+                    ];
                 } else if($_GET['latihan'] == MD5('Mufrodat ')){
                     $data['redirect'] = "mufrodat?id=".MD5("Mufrodat ");
                     $data['materi'] = "Mufrodat ";
-                    $data['tema'] = "Tema 3";
+                    $data['tema'] = "Tema 4";
                     $data['mufrodat'] = [
                     ];
                 }
@@ -3608,11 +5070,23 @@ class Mufrodat extends CI_CONTROLLER{
                     shuffle($data['mufrodat']);
                     $this->load->view("templates/header-user", $data);
                     if($urut == 1){
-                        $this->load->view("latihan/mufrodat-1", $data);
+                        if($_GET['latihan'] == MD5('Murojaah')){
+                            $this->load->view("latihan/murojaahmufrodat-1", $data);
+                        } else {
+                            $this->load->view("latihan/mufrodat-1", $data);
+                        }
                     } else if($urut == 2){
-                        $this->load->view("latihan/mufrodat-2", $data);
+                        if($_GET['latihan'] == MD5('Murojaah')){
+                            $this->load->view("latihan/murojaahmufrodat-2", $data);
+                        } else {
+                            $this->load->view("latihan/mufrodat-2", $data);
+                        }
                     } else if($urut == 3){
-                        $this->load->view("latihan/mufrodat-3", $data);
+                        if($_GET['latihan'] == MD5('Murojaah')){
+                            $this->load->view("latihan/murojaahmufrodat-3", $data);
+                        } else {
+                            $this->load->view("latihan/mufrodat-3", $data);
+                        }
                     }
                     $this->load->view("templates/footer-user", $data);
                 // view
@@ -3626,6 +5100,8 @@ class Mufrodat extends CI_CONTROLLER{
                 $data['tema'][1] = $this->tema($id, "Tema 1","اَلْغُرْفَةُ وَ السَّكَنُ", "Kamar dan Asrama", 104, 14);
                 $data['tema'][2] = $this->tema($id, "Tema 2","اَلْفَصْلُ وَ الْمَدْرَسَةُ", "Sekolah dan Kelas", 105, 14);
                 $data['tema'][3] = $this->tema($id, "Tema 3","مَسْجِدٌ", "Masjid", 94, 12);
+                $data['tema'][4] = $this->tema($id, "Tema 4","اَلْمَطْعَمُ وَ الْمَطْبَخُ", "Tempat Makan dan Dapur", 82, 12);
+                $data['tema'][5] = $this->tema($id, "Tema 5","اَلْحَمَّامُ", "Kamar Mandi", 37, 6);
             // Tema
 
             $this->load->view("templates/header-user", $data);
@@ -3634,7 +5110,43 @@ class Mufrodat extends CI_CONTROLLER{
         }
     }
 
+    public function listmurojaah(){
+        $id = $this->session->userdata('id');
+        $data['user'] = $this->Admin_model->get_one("user", ["id_user" => $id]);
+        $data['mufrodat'] = $this->Admin_model->get_all("murojaah", ["id_user" => $id]);
+        $data['title'] = "Murojaah Mufrodat";
+        // view
+            $this->load->view("templates/header-user", $data);
+            $this->load->view("pelajaran/menu-murojaah", $data);
+            $this->load->view("templates/footer-user", $data);
+        // view
+    }
+
     // add
+        public function murojaah(){
+            $id = $this->session->userdata('id');
+            $data = [
+                "id_user" => $id,
+                "kata_arab" => $this->input->post("kata_arab", TRUE),
+                "arti" => $this->input->post("arti", TRUE),
+                "huruf" => $this->input->post("huruf", TRUE)
+            ];
+
+            
+            if($this->input->post("add")){
+                $result = $this->Admin_model->add_data("murojaah", $data);
+                if($result){
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="fa fa-check-circle text-success mr-1"></i> Berhasil menambahkan kata ke list murojaah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                }
+            } else if($this->input->post("remove")){
+                $result = $this->Admin_model->delete_data("murojaah", ["kata_arab" => $data['kata_arab'], "arti" => $data['arti']]);
+                if($result){
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="fa fa-check-circle text-success mr-1"></i> Berhasil mengeluarkan kata dari list murojaah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                }
+            }
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+
         public function add_mufrodat(){
             $id = $this->session->userdata('id');
             $redirect = $this->input->post("redirect", TRUE);
@@ -3642,19 +5154,23 @@ class Mufrodat extends CI_CONTROLLER{
             $materi = $this->input->post("materi", TRUE);
             $tema = $this->input->post("tema", TRUE);
 
-            $cek = $this->Admin_model->get_one("mufrodat", ["id_user" => $id, "latihan" => $latihan, "materi" => $materi]);
-
-            $data = [
-                "latihan" => $latihan,
-                "id_user" => $id,
-                "materi" => $materi,
-                "tema" => $tema
-            ];
-            
-            if(!$cek)
-                $this->Admin_model->add_data("mufrodat", $data);
-
-            redirect($redirect);
+            if($redirect == "Murojaah"){
+                redirect(base_url("murojaah/listmurojaah"));
+            } else {
+                $cek = $this->Admin_model->get_one("mufrodat", ["id_user" => $id, "latihan" => $latihan, "materi" => $materi]);
+    
+                $data = [
+                    "latihan" => $latihan,
+                    "id_user" => $id,
+                    "materi" => $materi,
+                    "tema" => $tema
+                ];
+                
+                if(!$cek)
+                    $this->Admin_model->add_data("mufrodat", $data);
+    
+                redirect($redirect);
+            }
         }
 
         public function tema($id, $tema, $title, $title_arti, $total, $tot_latihan){

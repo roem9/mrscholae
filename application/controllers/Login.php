@@ -31,7 +31,7 @@
                         'status' => "login"
                     );
                     $this->session->set_userdata($data_session);
-                    redirect(base_url('pelajaran'));
+                    redirect(base_url('mufrodat/listmurojaah'));
                 } else {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="fa fa-times-circle text-danger mr-1"></i>Maaf, waktu langganan Anda telah habis di tanggal <strong>'.date("d-M-Y", strtotime($cek['tgl_langganan'])).'</strong>. Silahkan hubungi Admin untuk memperpanjang langganan Anda<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $data['header'] = 'Login User';

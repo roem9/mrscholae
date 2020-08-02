@@ -29,9 +29,10 @@
                                 <div class="container">
                                     <div class="row justify-content-center">
                                         <?php 
-                                            // shuffle($huruf);
-                                            shuffle($kalimat['huruf']);
-                                            foreach ($kalimat['huruf'] as $k => $data) :?>
+                                            $huruf = explode("|", $kalimat['huruf']);
+                                            $huruf = array_unique($huruf);
+                                            shuffle($huruf);
+                                            foreach ($huruf as $k => $data) :?>
                                                 <div class="radio-toolbar mr-3">
                                                     <a data-id="<?= $data?>|<?= $i?>" class="btn border-dark btn-md btn-secondary text-light mt-1 mb-1 arab input-btn" style="height: 40px; width: 40px; border-width: 2px"><b><?= $data?></b></a>
                                                 </div>
@@ -49,8 +50,8 @@
                 <form action="<?= base_url()?>mufrodat/add_mufrodat" method="post" id="latihan">
                     <input type="hidden" name="materi" value="<?= $materi?>">
                     <input type="hidden" name="tema" value="<?= $tema?>">
-                    <input type="hidden" name="latihan" value="Latihan 3">
-                    <input type="hidden" name="redirect" value="<?= $redirect?>">
+                    <input type="hidden" name="latihan" value="Murojaah">
+                    <input type="hidden" name="redirect" value="mufrodat/listmurojaah">
                 </form>
                 <div class="col-12 col-md-12 mb-3">
                     <a id="simpanJawaban" data-id="<?= COUNT($mufrodat)?>" class="btn btn-block btn-primary text-light">Periksa</a>

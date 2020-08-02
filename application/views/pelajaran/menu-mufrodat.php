@@ -1,11 +1,4 @@
         <div class="container">
-            <?php if( $this->session->flashdata('pesan') ) : ?>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <?= $this->session->flashdata('pesan');?>
-                    </div>
-                </div>
-            <?php endif; ?>
             <div class="row">
                 <div class="col-12 mb-3">
                     <a href="<?= base_url()?>mufrodat" class="text-primary"><u>Mufrodat</u></a> / <a class="text-primary" href="<?= base_url()?>mufrodat?tema=<?= md5($tema)?>"><u><?= $tema?></u></a> /
@@ -24,20 +17,47 @@
                         </select>
                     </div>
                 </div>
+                <?php $repeat = 0;?>
                 <?php if(!empty($latihan[0]) && !empty($latihan[1]) && !empty($latihan[2])):?>
+                    <?php $repeat = 1;?>
                     <div class="col-12 mb-1">
                         <div class="alert alert-success" style="font-size: 14px"><i class="fa fa-check-circle mr-1 text-success"></i>Anda telah menyelesaikan pelajaran ini</div>
                     </div>
+                    <?php if( $this->session->flashdata('pesan') ) : ?>
+                            <div class="col-12">
+                                <?= $this->session->flashdata('pesan');?>
+                            </div>
+                    <?php endif; ?>
                 <?php endif;?>
                 <?php if(COUNT($mufrodat) != 0):?>
                     <?php foreach ($mufrodat as $mufrodat) :?>
                         <div class="col-12 col-md-4 mb-2">
                             <ul class="list-group shadow">
-                                <li class="list-group-item d-flex justify-content-between arab" id="container-content">
+                                <?php if(in_array($mufrodat['kata_arab'], $murojaah)):?>
+                                    <li class="list-group-item list-group-item-secondary d-flex justify-content-between arab" id="container-content">
+                                <?php else :?>
+                                    <li class="list-group-item d-flex justify-content-between arab" id="container-content">
+                                <?php endif;?>
                                     <a class="" data-container="body" data-toggle="popover" data-placement="top" data-content="<?= $mufrodat['arti']?>">
                                         <i class="fa fa-info-circle text-info fa-lg"></i>
                                     </a>
-                                    <?= $mufrodat['kata_arab']?>
+                                    <span>
+                                        <form action="<?= base_url()?>mufrodat/murojaah" method="post">
+                                            <?php if($repeat == 1):
+                                                $huruf = implode("|",$mufrodat['huruf']);
+                                            ?>
+                                                    <input type="hidden" name="kata_arab" value="<?= $mufrodat['kata_arab']?>">
+                                                    <input type="hidden" name="arti" value="<?= $mufrodat['arti']?>">
+                                                    <input type="hidden" name="huruf" value="<?= $huruf?>">
+                                                    <?php if(in_array($mufrodat['kata_arab'], $murojaah)):?>
+                                                        <button style="border:none;background-color: Transparent;" type="submit" name="remove" value="remove"><i class="fa fa-times text-danger"></i></button>
+                                                    <?php else :?>
+                                                        <button style="border:none;background-color: Transparent;" type="submit" name="add" value="add"><i class="fa fa-redo text-warning"></i></button>
+                                                    <?php endif;?>
+                                            <?php endif;?>
+                                            <?= $mufrodat['kata_arab']?>
+                                        </form>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -131,6 +151,16 @@
     $("#font").change(function(){
         let font = $(this).val();
         $("[id='container-content']").css("font-size", font)
+    })
+
+    $("button[name='add']").click(function(){
+        var c = confirm("Yakin akan menambahkan kata ini ke list murojaah?");
+        return c;
+    })
+
+    $("button[name='remove']").click(function(){
+        var c = confirm("Yakin akan menghapus kata ini dari list murojaah?");
+        return c;
     })
 </script>
 
