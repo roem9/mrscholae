@@ -33,7 +33,7 @@
                     <?php foreach ($mufrodat as $mufrodat) :?>
                         <div class="col-12 col-md-4 mb-2">
                             <ul class="list-group shadow">
-                                <?php if(in_array($mufrodat['kata_arab'], $murojaah)):?>
+                                <?php if(in_array($mufrodat['kata_arab'], $murojaah) || in_array($mufrodat['arti'], $arti)):?>
                                     <li class="list-group-item list-group-item-secondary d-flex justify-content-between arab" id="container-content">
                                 <?php else :?>
                                     <li class="list-group-item d-flex justify-content-between arab" id="container-content">
@@ -49,7 +49,7 @@
                                                     <input type="hidden" name="kata_arab" value="<?= $mufrodat['kata_arab']?>">
                                                     <input type="hidden" name="arti" value="<?= $mufrodat['arti']?>">
                                                     <input type="hidden" name="huruf" value="<?= $huruf?>">
-                                                    <?php if(in_array($mufrodat['kata_arab'], $murojaah)):?>
+                                                    <?php if(in_array($mufrodat['kata_arab'], $murojaah) || in_array($mufrodat['arti'], $arti)):?>
                                                         <button style="border:none;background-color: Transparent;" type="submit" name="remove" value="remove"><i class="fa fa-times text-danger"></i></button>
                                                     <?php else :?>
                                                         <button style="border:none;background-color: Transparent;" type="submit" name="add" value="add"><i class="fa fa-redo text-warning"></i></button>

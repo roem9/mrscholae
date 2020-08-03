@@ -1,693 +1,559 @@
 <?php
-// الصِّفَاتُ ١
+// اَلْمِهَنُ
+//  1 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "جَمِيْلٌ",
-        "arti" => "Bagus/indah",
-        "huruf" => array_unique([جَمِيْلٌ])
+        "kata_arab" => "مُدِيْرُ الْمَدْرَسَةِ",
+        "arti" => "Kepala sekolah",
+        "huruf" => array_unique(["مُ","دِ","يْ","رُ","_","ا","لْ","مَ","دْ","رَ","سَ","ةِ"])
     ],
     [
-        "kata_arab" => "قَبِيْحٌ",
-        "arti" => "Jelek",
-        "huruf" => array_unique([قَبِيْحٌ])
+        "kata_arab" => "أُسْتَاذٌ",
+        "arti" => "Ustadz",
+        "huruf" => array_unique(["أُ","سْ","تَ","ا","ذٌ"])
     ],
     [
-        "kata_arab" => "نَظِيْفٌ",
-        "arti" => "Bersih",
-        "huruf" => array_unique([نَظِيْفٌ])
+        "kata_arab" => "مُدَرِّسٌ",
+        "arti" => "Guru",
+        "huruf" => array_unique(["مُ","دَ","رِّ","سٌ"])
     ],
     [
-        "kata_arab" => "وَسِخٌ",
-        "arti" => "Kotor",
-        "huruf" => array_unique([وَسِخٌ])
+        "kata_arab" => "مُوَظَّفٌ",
+        "arti" => "Pegawai",
+        "huruf" => array_unique(["مُ","وَ","ظَّ","فٌ"])
     ],
     [
-        "kata_arab" => "مُظْلِمٌ",
-        "arti" => "Gelap",
-        "huruf" => array_unique([مُظْلِمٌ])
+        "kata_arab" => "طَيَّارٌ",
+        "arti" => "Pilot",
+        "huruf" => array_unique(["طَ","يَّ","ا","رٌ"])
     ],
     [
-        "kata_arab" => "مُنِيْرٌ",
-        "arti" => "Terang",
-        "huruf" => array_unique([مُنِيْرٌ])
+        "kata_arab" => "نَجَّارٌ",
+        "arti" => "Tukang kayu",
+        "huruf" => array_unique(["نَ","جَّ","ا","رٌ"])
     ],
     [
-        "kata_arab" => "طَوِيْلٌ",
-        "arti" => "Tinggi",
-        "huruf" => array_unique([طَوِيْلٌ])
-    ],
-    [
-        "kata_arab" => "قَصِيْرٌ",
-        "arti" => "Pendek",
-        "huruf" => array_unique([قَصِيْرٌ])
+        "kata_arab" => "مُدَرِّبٌ",
+        "arti" => "Pelatih",
+        "huruf" => array_unique(["مُ","دَ","رِّ","بٌ"])
     ]
 ];
 
+// 2 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "وَاسِعٌ",
-        "arti" => "Luas",
-        "huruf" => array_unique([وَاسِعٌ])
+        "kata_arab" => "نَادِلٌ",
+        "arti" => "Pelayan",
+        "huruf" => array_unique(["نَ",'ا',"دِ","لٌ"])
     ],
     [
-        "kata_arab" => "ضَيِّقٌ",
-        "arti" => "Sempit",
-        "huruf" => array_unique([ضَيِّقٌ])
+        "kata_arab" => "بَنَّاءٌ",
+        "arti" => "Kuli bangunan",
+        "huruf" => array_unique(["بَ","نَّ",'ا',"ءٌ"])
     ],
     [
-        "kata_arab" => "كَبِيْرٌ",
-        "arti" => "Besar",
-        "huruf" => array_unique([كَبِيْرٌ])
+        "kata_arab" => "مُهَرِّجٌ",
+        "arti" => "Pelawak",
+        "huruf" => array_unique(["مُ","هَ","رِّ","جٌ"])
     ],
     [
-        "kata_arab" => "صَغِيْرٌ",
-        "arti" => "Kecil",
-        "huruf" => array_unique([صَغِيْرٌ])
+        "kata_arab" => "تَاجِرٌ",
+        "arti" => "Pedagang",
+        "huruf" => array_unique(["تَ","ا","جِ","رٌ"])
     ],
     [
-        "kata_arab" => "سَمِيْنٌ",
-        "arti" => "Gemuk",
-        "huruf" => array_unique([سَمِيْنٌ])
+        "kata_arab" => "فَلَّاحٌ",
+        "arti" => "Petani",
+        "huruf" => array_unique(["فَ","لَّ","ا","حٌ"])
     ],
     [
-        "kata_arab" => "نَحِيْفٌ",
-        "arti" => "Kurus",
-        "huruf" => array_unique([نَحِيْفٌ])
+        "kata_arab" => "سَمَّاكٌ",
+        "arti" => "Nelayan",
+        "huruf" => array_unique(["سَ","مَّ","ا","كٌ"])
     ],
     [
-        "kata_arab" => "بَعِيْدٌ",
-        "arti" => "Jauh",
-        "huruf" => array_unique([بَعِيْدٌ])
-    ],
-    [
-        "kata_arab" => "قَرِيْبٌ",
-        "arti" => "Dekat",
-        "huruf" => array_unique([قَرِيْبٌ])
+        "kata_arab" => "سَارِقٌ",
+        "arti" => "Pencuri",
+        "huruf" => array_unique(["سَ","ا","رِ","قٌ"])
     ]
 ];
 
+// 3 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "سَرِيْعٌ",
-        "arti" => "Cepat",
-        "huruf" => array_unique([سَرِيْعٌ])
+        "kata_arab" => "سَائِقٌ",
+        "arti" => "Sopir",
+        "huruf" => array_unique(["سَ","ا","ئِ","قٌ"])
     ],
     [
-        "kata_arab" => "بَطِيْءٌ",
-        "arti" => "Lambat",
-        "huruf" => array_unique([بَطِيْءٌ])
+        "kata_arab" => "مُذِيْعٌ",
+        "arti" => "Penyiar",
+        "huruf" => array_unique(["مُ","ذِ","يْ","عٌ"])
     ],
     [
-        "kata_arab" => "كَثِيْرٌ",
-        "arti" => "Banyak",
-        "huruf" => array_unique([كَثِيْرٌ])
+        "kata_arab" => "وَزِيْرٌ",
+        "arti" => "Menteri",
+        "huruf" => array_unique(["وَ","زِ","يْ","رٌ"])
     ],
     [
-        "kata_arab" => "قَلِيْلٌ",
-        "arti" => "Sedikit",
-        "huruf" => array_unique([قَلِيْلٌ])
+        "kata_arab" => "رَئِيْسُ الْجُمْهُرِيَّةِ",
+        "arti" => "Presiden",
+        "huruf" => array_unique(["رَ","ئِ","يْ","سُ","_","ا","لْ","جُ","مْ","هُ","رِ","يَّ","ةِ"])
     ],
     [
-        "kata_arab" => "سَهْلٌ",
-        "arti" => "Mudah",
-        "huruf" => array_unique([سَهْلٌ])
+        "kata_arab" => "زَبَّالٌ",
+        "arti" => "Tukang sampah",
+        "huruf" => array_unique(["زَ","بَّ","ا","لٌ"])
     ],
     [
-        "kata_arab" => "صَعْبٌ",
-        "arti" => "Susah",
-        "huruf" => array_unique([صَعْبٌ])
+        "kata_arab" => "كَاتِبٌ",
+        "arti" => "Penulis",
+        "huruf" => array_unique(["كَ","ا","تِ","بٌ"])
     ],
     [
-        "kata_arab" => "مَبْلُوْلٌ",
-        "arti" => "Basah",
-        "huruf" => array_unique([مَبْلُوْلٌ])
-    ],
-    [
-        "kata_arab" => "جَافٌّ",
-        "arti" => "Kering",
-        "huruf" => array_unique([جَافٌّ])
+        "kata_arab" => "مُتَسَوِّلٌ",
+        "arti" => "Pengemis",
+        "huruf" => array_unique(["مُ","تَ","سَ","وِّ","لٌ"])
     ]
 ];
 
+// 4 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "غَلِيْظٌ",
-        "arti" => "Tebal",
-        "huruf" => array_unique([غَلِيْظٌ])
+        "kata_arab" => "نَشَّالٌ",
+        "arti" => "Copet",
+        "huruf" => array_unique(["نَ","شَّ","ا","لٌ"])
     ],
     [
-        "kata_arab" => "رَقِيْقٌ",
-        "arti" => "Tipis",
-        "huruf" => array_unique([رَقِيْقٌ])
+        "kata_arab" => "بَطَلٌ",
+        "arti" => "Pahlawan",
+        "huruf" => array_unique(["بَ","طَ","لٌ"])
     ],
     [
-        "kata_arab" => "مُرْتَفِعٌ",
-        "arti" => "Tinggi",
-        "huruf" => array_unique([مُرْتَفِعٌ])
+        "kata_arab" => "شُرْطِيٌّ",
+        "arti" => "Polisi",
+        "huruf" => array_unique(["شُ","رْ","طِ","يٌّ"])
     ],
     [
-        "kata_arab" => "مُنْخَفِضٌ",
-        "arti" => "Rendah",
-        "huruf" => array_unique([مُنْخَفِضٌ])
+        "kata_arab" => "حَلَّاقٌ",
+        "arti" => "Tukang cukur",
+        "huruf" => array_unique(["حَ","لَّ","ا","قٌ"])
     ],
     [
-        "kata_arab" => "جَبَانٌ",
-        "arti" => "Pecundang",
-        "huruf" => array_unique([جَبَانٌ])
+        "kata_arab" => "خَيَّاطٌ",
+        "arti" => "Penjahit",
+        "huruf" => array_unique(["خَ","يَّ","ا","طٌ"])
     ],
     [
-        "kata_arab" => "شُجَاعٌ",
-        "arti" => "Pemberani",
-        "huruf" => array_unique([شُجَاعٌ])
+        "kata_arab" => "غَسَّالٌ",
+        "arti" => "Tukang cuci",
+        "huruf" => array_unique(["غَ","سَّ","ا","لٌ"])
     ],
     [
-        "kata_arab" => "قَوِيٌّ",
-        "arti" => "Kuat",
-        "huruf" => array_unique([قَوِيٌّ])
-    ],
-    [
-        "kata_arab" => "ضَعِيْفٌ",
-        "arti" => "Lemah",
-        "huruf" => array_unique([ضَعِيْفٌ])
+        "kata_arab" => "رَاعٍ",
+        "arti" => "Penggembala",
+        "huruf" => array_unique(["رَ","ا","عٍ"])
     ]
 ];
 
+// 5 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "حَيٌّ",
-        "arti" => "Hidup",
-        "huruf" => array_unique([حَيٌّ])
+        "kata_arab" => "طَالِبٌ",
+        "arti" => "Santri",
+        "huruf" => array_unique(["طَ","ا","لِ","بٌ"])
     ],
     [
-        "kata_arab" => "مَيِّتٌ",
-        "arti" => "Mati",
-        "huruf" => array_unique([مَيِّتٌ])
+        "kata_arab" => "مُجْرِمٌ",
+        "arti" => "Penjahat",
+        "huruf" => array_unique(["مُ","جْ","رِ","مٌ"])
     ],
     [
-        "kata_arab" => "مُضْحِكٌ",
-        "arti" => "Lucu",
-        "huruf" => array_unique([مُضْحِكٌ])
+        "kata_arab" => "جُنْدِيٌّ",
+        "arti" => "Tentara",
+        "huruf" => array_unique(["جُ","نْ","دِ","يٌّ"])
     ],
     [
-        "kata_arab" => "مُعْجِبٌ",
-        "arti" => "Mempesona",
-        "huruf" => array_unique([مُعْجِبٌ])
+        "kata_arab" => "طَبَّاخٌ",
+        "arti" => "Koki",
+        "huruf" => array_unique(["طَ","بَّ","ا","خٌ"])
     ],
     [
-        "kata_arab" => "مُمْتَازٌ",
-        "arti" => "Istimewa",
-        "huruf" => array_unique([مُمْتَازٌ])
+        "kata_arab" => "مُدِيْرٌ",
+        "arti" => "Direktur",
+        "huruf" => array_unique(["مُ","دِ","يْ","رٌ"])
     ],
     [
-        "kata_arab" => "حَسَنٌ",
-        "arti" => "Baik",
-        "huruf" => array_unique([حَسَنٌ])
+        "kata_arab" => "قَاضٍ",
+        "arti" => "Hakim",
+        "huruf" => array_unique(["قَ","ا","ضٍ"])
     ],
     [
-        "kata_arab" => "شَرٌّ",
-        "arti" => "Buruk",
-        "huruf" => array_unique([شَرٌّ])
-    ],
-    [
-        "kata_arab" => "مُرَتَّبٌ",
-        "arti" => "Rapi",
-        "huruf" => array_unique([مُرَتَّبٌ])
+        "kata_arab" => "سَبَّاقٌ",
+        "arti" => "Pembalap",
+        "huruf" => array_unique(["سَ","بَّ","ا","قٌ"])
     ]
 ];
 
+// 6 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "مُتَبَعْثِرٌ",
-        "arti" => "Berantakan",
-        "huruf" => array_unique([مُتَبَعْثِرٌ])
+        "kata_arab" => "كَاشِيْرٌ",
+        "arti" => "Kasir",
+        "huruf" => array_unique(["كَ","ا","شِ","يْ","رٌ"])
     ],
     [
-        "kata_arab" => "شَدِيْدٌ",
-        "arti" => "Keras",
-        "huruf" => array_unique([شَدِيْدٌ])
+        "kata_arab" => "دَاعٍ",
+        "arti" => "Dai",
+        "huruf" => array_unique(["دَ","ا","عٍ"])
     ],
     [
-        "kata_arab" => "لَيِّنٌ",
-        "arti" => "Lunak",
-        "huruf" => array_unique([لَيِّنٌ])
+        "kata_arab" => "مُنَظِّمُ السَّيْرِ",
+        "arti" => "Tukang parkir",
+        "huruf" => array_unique(["مُ","نَ","ظِّ","مُ","_","ا","ل","سَّ","يْ","رِ"])
     ],
     [
-        "kata_arab" => "حَادٌّ",
-        "arti" => "Tajam",
-        "huruf" => array_unique([حَادٌّ])
+        "kata_arab" => "خَطِيْبٌ",
+        "arti" => "Penceramah",
+        "huruf" => array_unique(["خَ","طِ","يْ","بٌ"])
     ],
     [
-        "kata_arab" => "كَلِيْلٌ",
-        "arti" => "Tumpul",
-        "huruf" => array_unique([كَلِيْلٌ])
+        "kata_arab" => "مُعَلِّقٌ",
+        "arti" => "Komentator",
+        "huruf" => array_unique(["مُ","عَ","لِّ","قٌ"])
     ],
     [
-        "kata_arab" => "بَخِيْلٌ",
-        "arti" => "Pelit",
-        "huruf" => array_unique([بَخِيْلٌ])
+        "kata_arab" => "مُقَدِّمُ الْبَرْنَامِجِ",
+        "arti" => "Pembawa acara",
+        "huruf" => array_unique(["مُ","قَ","دِّ","مُ","_","ا","لْ","بَ","رْ","نَ","ا","مِ","جِ"])
     ],
     [
-        "kata_arab" => "جَوَادٌ",
-        "arti" => "Dermawan",
-        "huruf" => array_unique([جَوَادٌ])
-    ],
-    [
-        "kata_arab" => "مَشْغُوْلٌ",
-        "arti" => "Sibuk",
-        "huruf" => array_unique([مَشْغُوْلٌ])
+        "kata_arab" => "خَادِمٌ",
+        "arti" => "Pembantu",
+        "huruf" => array_unique(["خَ","ا","دِ","مٌ"])
     ]
 ];
 
+// 7 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "شِرِّيْرٌ",
-        "arti" => "Nakal",
-        "huruf" => array_unique([شِرِّيْرٌ])
+        "kata_arab" => "مُصَوِّرٌ",
+        "arti" => "Fotografer",
+        "huruf" => array_unique(["مُ","صَ","وِّ","رٌ"])
     ],
     [
-        "kata_arab" => "عَادٍ",
-        "arti" => "Biasa",
-        "huruf" => array_unique([عَادٍ])
+        "kata_arab" => "رَسَّامٌ",
+        "arti" => "Pelukis",
+        "huruf" => array_unique(["رَ","سَّ","ا","مٌ"])
     ],
     [
-        "kata_arab" => "مَجَّانٌ",
-        "arti" => "Gratis",
-        "huruf" => array_unique([مَجَّانٌ])
+        "kata_arab" => "مُبَرِّجٌ",
+        "arti" => "Perias",
+        "huruf" => array_unique(["مُ","بَ","رِّ","جٌ"])
     ],
     [
-        "kata_arab" => "سَاخِنٌ",
-        "arti" => "Hangat",
-        "huruf" => array_unique([سَاخِنٌ])
+        "kata_arab" => "سَاعِي الْبَرِيْدِ",
+        "arti" => "Tukang pos",
+        "huruf" => array_unique(["سَ","ا","عِ",'ي',"_","ا","لْ","بَ","رِ","يْ","دِ"])
     ],
     [
-        "kata_arab" => "مَجْنُوْنٌ",
-        "arti" => "Gila",
-        "huruf" => array_unique([مَجْنُوْنٌ])
+        "kata_arab" => "مُهَنْدِسٌ",
+        "arti" => "Arsitek",
+        "huruf" => array_unique(["مُ","هَ","نْ","دِ","سٌ"])
     ],
     [
-        "kata_arab" => "كَرِيْمٌ",
-        "arti" => "Mulia",
-        "huruf" => array_unique([كَرِيْمٌ])
+        "kata_arab" => "بَوَّابٌ",
+        "arti" => "Satpam",
+        "huruf" => array_unique(["بَ","وَّ","ا","بٌ"])
     ],
     [
-        "kata_arab" => "مَهِيْنٌ",
-        "arti" => "Hina",
-        "huruf" => array_unique([مَهِيْنٌ])
-    ],
-    [
-        "kata_arab" => "كَثِيْفٌ",
-        "arti" => "Lebat",
-        "huruf" => array_unique([كَثِيْفٌ])
-    ],
-]
-
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "شَابٌّ",
-        "arti" => "Muda",
-        "huruf" => array_unique([شَابٌّ])
-    ],
-    [
-        "kata_arab" => "عَجُوْزٌ",
-        "arti" => "Tua",
-        "huruf" => array_unique([عَجُوْزٌ])
-    ],
-    [
-        "kata_arab" => "سَعِيْدٌ",
-        "arti" => "Bahagia",
-        "huruf" => array_unique([سَعِيْدٌ])
-    ],
-    [
-        "kata_arab" => "شَقِيٌّ",
-        "arti" => "Sengsara",
-        "huruf" => array_unique([شَقِيٌّ])
-    ],
-    [
-        "kata_arab" => "وَسِيْمٌ",
-        "arti" => "Tampan",
-        "huruf" => array_unique([وَسِيْمٌ])
-    ],
-    [
-        "kata_arab" => "صَافٍ",
-        "arti" => "Jernih",
-        "huruf" => array_unique([صَافٍ])
-    ],
-    [
-        "kata_arab" => "مُتَنَوِّعٌ",
-        "arti" => "Bermacam-macam",
-        "huruf" => array_unique([مُتَنَوِّعٌ])
-    ],
-    [
-        "kata_arab" => "كَسْلَانُ",
-        "arti" => "Malas",
-        "huruf" => array_unique([كَسْلَانُ])
-    ],
-]
-
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "نَشِيْطٌ",
-        "arti" => "Rajin",
-        "huruf" => array_unique([نَشِيْطٌ])
-    ],
-    [
-        "kata_arab" => "مَاهِرٌ",
-        "arti" => "Pandai",
-        "huruf" => array_unique([مَاهِرٌ])
-    ],
-    [
-        "kata_arab" => "هَادِئٌ",
-        "arti" => "Tenang",
-        "huruf" => array_unique([هَادِئٌ])
-    ],
-    [
-        "kata_arab" => "عَامٌّ",
-        "arti" => "Umum",
-        "huruf" => array_unique([عَامٌّ])
-    ],
-    [
-        "kata_arab" => "مَوْجُوْدٌ",
-        "arti" => "Ada",
-        "huruf" => array_unique([مَوْجُوْدٌ])
-    ],
-    [
-        "kata_arab" => "مَهْمُوْمٌ",
-        "arti" => "Galau",
-        "huruf" => array_unique([مَهْمُوْمٌ])
-    ],
-    [
-        "kata_arab" => "مَثْقُوْبٌ",
-        "arti" => "Bolong",
-        "huruf" => array_unique([مَثْقُوْبٌ])
-    ],
-    [
-        "kata_arab" => "مُسْتَقِيْمٌ",
-        "arti" => "Lurus",
-        "huruf" => array_unique([مُسْتَقِيْمٌ])
-    ],
-]
-
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "غَرِيْبٌ",
-        "arti" => "Aneh",
-        "huruf" => array_unique([غَرِيْبٌ])
-    ],
-    [
-        "kata_arab" => "مُنْتِنٌ",
-        "arti" => "Basi",
-        "huruf" => array_unique([مُنْتِنٌ])
-    ],
-    [
-        "kata_arab" => "خَطِيْرٌ",
-        "arti" => "Berbahaya",
-        "huruf" => array_unique([خَطِيْرٌ])
-    ],
-    [
-        "kata_arab" => "ذَكِيٌّ",
-        "arti" => "Cerdas",
-        "huruf" => array_unique([ذَكِيٌّ])
-    ],
-    [
-        "kata_arab" => "مُتَرَدِّدٌ",
-        "arti" => "Ragu-ragu",
-        "huruf" => array_unique([مُتَرَدِّدٌ])
-    ],
-    [
-        "kata_arab" => "مُتَأَكِّدٌ",
-        "arti" => "Yakin",
-        "huruf" => array_unique([مُتَأَكِّدٌ])
-    ],
-    [
-        "kata_arab" => "غَنِيٌّ",
-        "arti" => "Kaya",
-        "huruf" => array_unique([غَنِيٌّ])
-    ],
-    [
-        "kata_arab" => "مُتَفَرِّقٌ",
-        "arti" => "Berbeda",
-        "huruf" => array_unique([مُتَفَرِّقٌ])
-    ],
-]
-
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "مُتَسَاوٍ",
-        "arti" => "Sama",
-        "huruf" => array_unique([مُتَسَاوٍ])
-    ],
-    [
-        "kata_arab" => "غَزِيْرٌ",
-        "arti" => "Deras",
-        "huruf" => array_unique([غَزِيْرٌ])
-    ],
-    [
-        "kata_arab" => "مُخِيْفٌ",
-        "arti" => "Menakutkan",
-        "huruf" => array_unique([مُخِيْفٌ])
-    ],
-    [
-        "kata_arab" => "غَيْرُ وَاضِحٍ",
-        "arti" =>:" Tidak jelas",
-        "huruf" => array_unique([وَاضِحٍ])
-    ],
-    [
-        "kata_arab" => "عَالٍ",
-        "arti" => "Tinggi",
-        "huruf" => array_unique([عَالٍ])
-    ],
-    [
-        "kata_arab" => "لَازِمٌ",
-        "arti" => "Wajar",
-        "huruf" => array_unique([لَازِمٌ])
-    ],
-    [
-        "kata_arab" => "خَائِفٌ",
-        "arti" => "Takut",
-        "huruf" => array_unique([خَائِفٌ])
-    ],
-    [
-        "kata_arab" => "دَقِيْقٌ",
-        "arti" => "Teliti",
-        "huruf" => array_unique([دَقِيْقٌ])
-    ],
-]
-
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "مُبْغِضٌ",
-        "arti" => "Ngenekin",
-        "huruf" => array_unique([مُبْغِضٌ])
-    ],
-    [
-        "kata_arab" => "مُزْعِجٌ",
-        "arti" => "Ribut",
-        "huruf" => array_unique([مُزْعِجٌ])
-    ],
-    [
-        "kata_arab" => "جَرِيْحٌ",
-        "arti" => "Terluka",
-        "huruf" => array_unique([جَرِيْحٌ])
-    ],
-    [
-        "kata_arab" => "سَكْرَانُ",
-        "arti" => "Mabuk",
-        "huruf" => array_unique([سَكْرَانُ])
-    ],
-    [
-        "kata_arab" => "مَحْلُوْقٌ",
-        "arti" => "Botak",
-        "huruf" => array_unique([مَحْلُوْقٌ])
-    ],
-    [
-        "kata_arab" => "عَمِيْقٌ",
-        "arti" => "Dalam",
-        "huruf" => array_unique([عَمِيْقٌ])
-    ],
-    [
-        "kata_arab" => "ضَحْلٌ",
-        "arti" => "Dangkal",
-        "huruf" => array_unique([ضَحْلٌ])
-    ],
-    [
-        "kata_arab" => "نَاعِمٌ",
-        "arti" => "Lembut",
-        "huruf" => array_unique([نَاعِمٌ])
-    ],
-]
-
-// 13 8
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "خَشِنٌ",
-        "arti" => "Kasar",
-        "huruf" => array_unique(["خَ","شِ","نٌ"])
-    ],
-    [
-        "kata_arab" => "أَفْطَسُ",
-        "arti" => "Pesek",
-        "huruf" => array_unique(["أَ","فْ","طَ","سُ"])
-    ],
-    [
-        "kata_arab" => "مُدَبِّبٌ",
-        "arti" => "Mancung",
-        "huruf" => array_unique(["مُ","دَ","بِّ","بٌ"])
-    ],
-    [
-        "kata_arab" => "مُنْتَفِخٌ",
-        "arti" => "Menggelembung",
-        "huruf" => array_unique(["مُ","نْ","تَ","فِ","خٌ"])
-    ],
-    [
-        "kata_arab" => "مُعْدٍ",
-        "arti" => "Menular",
-        "huruf" => array_unique(["مُ","عْ","دٍ"])
-    ],
-    [
-        "kata_arab" => "نَسِيْمٌ",
-        "arti" => "Sepoi-sepoi",
-        "huruf" => array_unique(["نَ","سِ","يْ","مٌ"])
-    ],
-    [
-        "kata_arab" => "عَلِيْلٌ",
-        "arti" => "Sejuk",
-        "huruf" => array_unique(["عَ","لِ","يْ","لٌ"])
-    ],
-    [
-        "kata_arab" => "حُرٌّ",
-        "arti" => "Bebas",
-        "huruf" => array_unique(["حُ","رٌّ"])
+        "kata_arab" => "مُمَثِّلٌ",
+        "arti" => "Artis",
+        "huruf" => array_unique(["مُ","مَ","ثِّ","لٌ"])
     ]
 ];
 
-// 14 8
+// 8 7
 $data['mufrodat'] = [
     [
-        "kata_arab" => "أَعْوَاجُ",
-        "arti" => "Bengkok",
-        "huruf" => array_unique(["أَ","عْ","وَ","ا","جُ"])
+        "kata_arab" => "جَزَّارٌ",
+        "arti" => "Tukang jagal",
+        "huruf" => array_unique(["جَ","زَّ","ا","رٌ"])
     ],
     [
-        "kata_arab" => "شَوْكِيٌّ",
-        "arti" => "Berduri",
-        "huruf" => array_unique(["شَ","وْ","كِ","يٌّ"])
+        "kata_arab" => "صَحَافِيٌّ",
+        "arti" => "Wartawan",
+        "huruf" => array_unique(["صَ","حَ","ا","فِ","يٌّ"])
     ],
     [
-        "kata_arab" => "ثَرْثَارٌ",
-        "arti" => "Cerewet",
-        "huruf" => array_unique(["ثَ","رْ","ثَ","ا","رٌ"])
+        "kata_arab" => "طَبِيْبٌ",
+        "arti" => "Dokter",
+        "huruf" => array_unique(["طَ","بِ",'يْ',"بٌ"])
     ],
     [
-        "kata_arab" => "مُسَمَّرٌ",
-        "arti" => "Terpaku",
-        "huruf" => array_unique(["مُ","سَ","مَّ","رٌ"])
+        "kata_arab" => "مُمَرِّضٌ",
+        "arti" => "Perawat",
+        "huruf" => array_unique(["مُ",'مَ',"رِّ","ضٌ"])
     ],
     [
-        "kata_arab" => "حَسَّاسٌ",
-        "arti" => "Sensitif/baper",
-        "huruf" => array_unique(["حَ","سَّ","ا","سٌ"])
+        "kata_arab" => "قَاضٍ",
+        "arti" => "Hakim",
+        "huruf" => array_unique(["قَ","ا","ضٍ"])
     ],
     [
-        "kata_arab" => "فَرِيْدٌ",
-        "arti" => "Unik",
-        "huruf" => array_unique(["فَ","رِ","يْ","دٌ"])
+        "kata_arab" => "إِسْكَافٌ",
+        "arti" => "Tukang sol",
+        "huruf" => array_unique(["إِ","سْ","كَ","ا","فٌ"])
     ],
     [
-        "kata_arab" => "أَلِيْفٌ",
-        "arti" => "Jinak",
-        "huruf" => array_unique(["أَ","لِ","يْ","فٌ"])
-    ],
-    [
-        "kata_arab" => "مُتَوَحِّشٌ",
-        "arti" => "Buas",
-        "huruf" => array_unique(["مُ","تَ","وَ","حِّ","شٌ"])
-    ],
-]
-
-// 15 8
-$data['mufrodat'] = [
-    [
-        "kata_arab" => "مُسْتَرْسِلٌ",
-        "arti" => "Lurus (rambut)",
-        "huruf" => array_unique(["مُ","سْ","تَ","رْ","سِ","لٌ"])
-    ],
-    [
-        "kata_arab" => "مُجَعَّدٌ",
-        "arti" => "Keriting",
-        "huruf" => array_unique(["مُ","جَ","عَّ","دٌ"])
-    ],
-    [
-        "kata_arab" => "أَشْقَرُ",
-        "arti" => "Pirang",
-        "huruf" => array_unique(["أَ","شْ","قَ","رُ"])
-    ],
-    [
-        "kata_arab" => "أَحْوَصُ",
-        "arti" => "Sipit",
-        "huruf" => array_unique(["أَ","حْ","وَ","صُ"])
-    ],
-    [
-        "kata_arab" => "أَحْمَقُ",
-        "arti" => "Idiot",
-        "huruf" => array_unique(["أَ","حْ","مَ","قُ"])
-    ],
-    [
-        "kata_arab" => "مُكْتَتِزٌ",
-        "arti" => "Berisi",
-        "huruf" => array_unique(["مُ","كْ","تَ","تِ","زٌ"])
-    ],
-    [
-        "kata_arab" => "هَزِيْلٌ",
-        "arti" => "Kerempeng",
-        "huruf" => array_unique(["هَ","زِ","يْ","لٌ"])
-    ],
-    [
-        "kata_arab" => "مَائِعٌ",
-        "arti" => "Cair",
-        "huruf" => array_unique(["مَ","ا","ئِ","عٌ"])
+        "kata_arab" => "مُضِيْفٌ",
+        "arti" => "Pramugara",
+        "huruf" => array_unique(["مُ","ضِ","يْ","فٌ"])
     ]
-]
+];
 
-// 16 8
+// 9 5
 $data['mufrodat'] = [
     [
-        "kata_arab" => "جَامِدٌ",
-        "arti" => "Padat",
-        "huruf" => array_unique(["جَ","ا","مِ","دٌ"])
+        "kata_arab" => "صَيْدَلِيٌّ",
+        "arti" => "Apoteker",
+        "huruf" => array_unique(["صَ","يْ","دَ","لِ","يٌّ"])
     ],
     [
-        "kata_arab" => "جَسِيْمٌ",
-        "arti" => "Kekar",
-        "huruf" => array_unique(["جَ","سِ","يْ","مٌ"])
+        "kata_arab" => "مُبَرْمِجٌ",
+        "arti" => "Programmer",
+        "huruf" => array_unique(["مُ","بَ","رْ","مِ","جٌ"])
     ],
     [
-        "kata_arab" => "مُنْتَقِمٌ",
-        "arti" => "Pendendam",
-        "huruf" => array_unique(["مُ","نْ","تَ","قِ","مٌ"])
+        "kata_arab" => "مُحَامٍ",
+        "arti" => "Pengacara",
+        "huruf" => array_unique(["مُ","حَ","ا","مٍ"])
     ],
     [
-        "kata_arab" => "مَرِنٌ",
-        "arti" => "Lentur",
-        "huruf" => array_unique(["مَ","رِ","نٌ"])
+        "kata_arab" => "مُتَرْجِمٌ",
+        "arti" => "Penterjemah",
+        "huruf" => array_unique(["مُ",'تَ',"رْ","جِ","مٌ"])
     ],
     [
-        "kata_arab" => "فَسِيْحٌ",
-        "arti" => "Longgar",
-        "huruf" => array_unique(["فَ","سِ","يْ","حٌ"])
+        "kata_arab" => "مُهَنْدِسٌ",
+        "arti" => "Insinyur",
+        "huruf" => array_unique(["مُ","هَ","نْ","دِ","سٌ"])
+    ]
+];
+
+
+// 1 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "عَلَّقَ-يُعَلِّقُ",
+        "arti" => "Mengomentari",
+        "huruf" => array_unique(["عَ","لَّ","قَ","-","يُ","عَ","لِّ","قُ"])
     ],
     [
-        "kata_arab" => "ثَمِيْنٌ",
-        "arti" => "Berharga",
-        "huruf" => array_unique(["ثَ","مِ","يْ","نٌ"])
+        "kata_arab" => "اِقْتَرَحَ-يَقْتَرِحُ",
+        "arti" => "Berpendapat",
+        "huruf" => array_unique(["اِ","قْ","تَ","رَ","حَ","-","يَ","قْ","تَ","رِ","حُ"])
     ],
     [
-        "kata_arab" => "حَاقِنٌ",
-        "arti" => "Kebelet kencing",
-        "huruf" => array_unique(["حَ","ا","قِ","نٌ"])
+        "kata_arab" => "اِنْتَقَدَ-يَنْتَقِدُ",
+        "arti" => "Mengkritik",
+        "huruf" => array_unique(["اِ","نْ","تَ","قَ","دَ","-","يَ","نْ","تَ","قِ","دُ"])
     ],
     [
-        "kata_arab" => "أَمْلَسُ",
-        "arti" => "Mulus",
-        "huruf" => array_unique(["أَ","مْ","لَ","سُ"])
+        "kata_arab" => "تَمَهَّلَ-يَتَمَهَّلُ",
+        "arti" => "Pelan-pelan",
+        "huruf" => array_unique(["تَ","مَ","هَّ","لَ","-","يَ","تَ","مَ","هَّ","لُ"])
+    ]
+];
+
+// 2 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "صَوَّرَ-يُصَوِّرُ",
+        "arti" => "Memfoto",
+        "huruf" => array_unique(["صَ","وَّ","رَ","-","يُ","صَ","وِّ","رُ"])
+    ],
+    [
+        "kata_arab" => "قَضَى-يَقْضِي عَلَى",
+        "arti" => "Menghakimi",
+        "huruf" => array_unique(["قَ","ضَ","ى","-","يَ","قْ","ضِ","ي","_","عَ","لَ","ى"])
+    ],
+    [
+        "kata_arab" => "رَسَمَ-يَرْسُمُ",
+        "arti" => "Melukis",
+        "huruf" => array_unique(["رَ","سَ","مَ","-","يَ","رْ","سُ",'مُ'])
+    ],
+    [
+        "kata_arab" => "غَاصَ-يَغُوْصُ",
+        "arti" => "Menyelam",
+        "huruf" => array_unique(["غَ","ا","صَ","-","يَ","غُ","وْ","صُ"])
+    ]
+];
+
+// 3 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "رَعَى-يَرْعَى",
+        "arti" => "Menggembala",
+        "huruf" => array_unique(["رَ","عَ","ى","-","يَ","رْ","عَ","ى"])
+    ],
+    [
+        "kata_arab" => "رَبَّى-يُرَبِّي",
+        "arti" => "Mendidik",
+        "huruf" => array_unique(["رَ","بَّ","ى","-","يُ","رَ","بِّ","ي"])
+    ],
+    [
+        "kata_arab" => "صَادَ-يَصِيْدُ",
+        "arti" => "Memburu",
+        "huruf" => array_unique(["صَ","ا","دَ","-","يَ","صِ","يْ","دُ"])
+    ],
+    [
+        "kata_arab" => "صَمَّمَ-يُصَمِّمُ",
+        "arti" => "Mendesain",
+        "huruf" => array_unique(["صَ","مَّ","مَ","-","يُ","صَ","مِّ","مُ"])
+    ]
+];
+
+// 4 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "حَلَقَ-يَحْلِقُ",
+        "arti" => "Mencukur",
+        "huruf" => array_unique(["حَ","لَ","قَ","-","يَ","حْ","لِ","قُ"])
+    ],
+    [
+        "kata_arab" => "أَنْتَجَ-يُنْتِجُ",
+        "arti" => "Menghasilkan",
+        "huruf" => array_unique(["أَ","نْ","تَ","جَ","-","يُ","نْ","تِ","جُ"])
+    ],
+    [
+        "kata_arab" => "أَصْلَحَ-يُصْلِحُ",
+        "arti" => "Memperbaiki",
+        "huruf" => array_unique(["أَ","صْ","لَ","حَ","-","يُ","صْ","لِ","حُ"])
+    ],
+    [
+        "kata_arab" => "خَدَعَ-يَخْدَعُ",
+        "arti" => "Menipu",
+        "huruf" => array_unique(["خَ","دَ","عَ","-","يَ","خْ","دَ","عُ"])
+    ]
+];
+
+// 5 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "أَرْسَلَ-يُرْسِلُ",
+        "arti" => "Mengirim",
+        "huruf" => array_unique(["أَ","رْ","سَ","لَ","-","يُ","رْ","سِ","لُ"])
+    ],
+    [
+        "kata_arab" => "رَئِسَ-يَرْئَسُ",
+        "arti" => "Mengetuai",
+        "huruf" => array_unique(["رَ","ئِ","سَ","-","يَ","رْ","ئَ","سُ"])
+    ],
+    [
+        "kata_arab" => "خَطَبَ-يَخْطُبُ",
+        "arti" => "Berceramah",
+        "huruf" => array_unique(["خَ","طَ","بَ","-","يَ","خْ","طُ","بُ"])
+    ],
+    [
+        "kata_arab" => "أَفْلَسَ-يُفْلِسُ",
+        "arti" => "Bangkrut",
+        "huruf" => array_unique(["أَ","فْ","لَ","سَ","-","يُ","فْ","لِ","سُ"])
+    ]
+];
+
+// 6 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "خَسِرَ-يَخْسَرُ",
+        "arti" => "Rugi",
+        "huruf" => array_unique(["خَ","سِ","رَ","-","يَ","خْ","سَ","رُ"])
+    ],
+    [
+        "kata_arab" => "رَاجَ-يَرُوْجُ",
+        "arti" => "Laku",
+        "huruf" => array_unique(["رَ","ا","جَ","-","يَ","رُ","وْ","جُ"])
+    ],
+    [
+        "kata_arab" => "هَرَّجَ-يُهَرِّجُ",
+        "arti" => "Melawak",
+        "huruf" => array_unique(["هَ","رَّ","جَ","-","يُ","هَ","رِّ","جُ"])
+    ],
+    [
+        "kata_arab" => "رَبِحَ-يَرْبَحُ",
+        "arti" => "Untung",
+        "huruf" => array_unique(["رَ","بِ","حَ","-","يَ","رْ","بَ","حُ"])
+    ]
+];
+
+// 7 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "أَذَاعَ-يُذِيْعُ",
+        "arti" => "Menyiarkan",
+        "huruf" => array_unique(["أَ","ذَ","ا","عَ","-","يُ","ذِ","يْ","عُ"])
+    ],
+    [
+        "kata_arab" => "اِسْتَأْجَرَ-يَسْتَأْجِرُ",
+        "arti" => "Menyewa",
+        "huruf" => array_unique(["اِ","سْ","تَ","أْ","جَ","رَ","-","يَ","سْ","تَ","أْ","جِ","رُ"])
+    ],
+    [
+        "kata_arab" => "غَنَّى-يُغَنِّيْ",
+        "arti" => "Beryanyi",
+        "huruf" => array_unique(["غَ","نَّ","ى","-","يُ","غَ","نِّ","يْ"])
+    ],
+    [
+        "kata_arab" => "لَوَّنَ-يُلَوِّنُ",
+        "arti" => "Mewarnai",
+        "huruf" => array_unique(["لَ","وَّ","نَ","-","يُ","لَ","وِّ","نُ"])
+    ]
+];
+
+// 8 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "سَرَقَ-يَسْرِقُ",
+        "arti" => "Mencuri",
+        "huruf" => array_unique(["سَ","رَ","قَ","-","يَ","سْ","رِ","قُ"])
+    ],
+    [
+        "kata_arab" => "تَوَلَّى-يَتَوَلَّى عَلَى",
+        "arti" => "Mengurus",
+        "huruf" => array_unique(["تَ","وَ","لَّ","ى","-","يَ","تَ","وَ","لَّ","ى","_","عَ","لَ","ى"])
+    ],
+    [
+        "kata_arab" => "رَكَّبَ-يُرَكِّبُ",
+        "arti" => "Memasang",
+        "huruf" => array_unique(["رَ","كَّ","بَ","-","يُ","رَ","كِّ","بُ"])
+    ],
+    [
+        "kata_arab" => "نَزَعَ-يَنْزِعُ",
+        "arti" => "Mencabut",
+        "huruf" => array_unique(["نَ","زَ","عَ","-","يَ","نْ","زِ","عُ"])
+    ]
+];
+
+// 9 4
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "أَلَّفَ-يُؤَلِّفُ",
+        "arti" => "Mengarang",
+        "huruf" => array_unique(["أَ","لَّ","فَ","-","يُ","ؤَ","لِّ","فُ"])
+    ],
+    [
+        "kata_arab" => "حَفَرَ-يَحْفِرُ",
+        "arti" => "Menggali",
+        "huruf" => array_unique(["حَ","فَ","رَ","-","يَ","حْ","فِ","رُ"])
+    ],
+    [
+        "kata_arab" => "دَخَّنَ-يُدَخِّنُ",
+        "arti" => "Merokok",
+        "huruf" => array_unique(["دَ","خَّ","نَ","-","يُ","دَ","خِّ","نُ"])
+    ],
+    [
+        "kata_arab" => "سَجَّلَ-يُسَجِّلُ",
+        "arti" => "Merekam",
+        "huruf" => array_unique(["سَ","جَّ","لَ","-","يُ","سَ","جِّ","لُ"])
     ]
 ];

@@ -14,6 +14,11 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="alert alert-warning">
+                            <i class="fa fa-exclamation-circle mr-1 text-warning"></i>Anda memiliki <strong><?= COUNT($mufrodat)?> kata</strong> yang harus dimurojaah
+                        </div>
+                    </div>
                     <?php $repeat = 0;?>
                     <?php if( $this->session->flashdata('pesan') ) : ?>
                             <div class="col-12">
@@ -36,8 +41,16 @@
                                         </form>
                                     </span>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item d-flex justify-content-between">
                                     <?= date("H:i / d-m-Y", strtotime($mufrodat['waktu']))?>
+                                    <span>
+                                        <?php
+                                            $tgl1 = new DateTime(date("Y-m-d", strtotime($mufrodat['waktu'])));
+                                            $tgl2 = new DateTime();
+                                            $d = $tgl2->diff($tgl1)->days;
+                                        ?>
+                                        <a class="btn btn-sm btn-outline-info"><?= $d?> hari</a>
+                                    </span>
                                 </li>
                             </ul>
                         </div>

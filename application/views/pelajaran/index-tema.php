@@ -17,7 +17,7 @@
                             <div class="card-header list-group-item-info d-flex justify-content-between"><?= $tema[$i]['title_arti']?><span class="badge badge-danger"><?= $tema[$i]['count']?></span></div>
                             <div class="card-body">
                                 <div class="progress mb-3">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: <?= $tema[$i]['mufrodat']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: <?= $tema[$i]['mufrodat']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><?= floor($tema[$i]['mufrodat'])?>%</div>
                                 </div>
                                 <?php if($tema[$i]['mufrodat'] == 100) :?>
                                     <a href="<?= base_url()?>mufrodat?tema=<?= MD5($tema[$i]['title_arti'])?>" class="btn btn-block btn-sm btn-success"><i class="fa fa-book mr-1"></i> Mulai</a>

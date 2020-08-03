@@ -20,7 +20,7 @@
                             <div class="card-header list-group-item-info d-flex justify-content-between"><?= $mufrodat[$i]['title_arti']?><span class="badge badge-danger"><?= $mufrodat[$i]['count']?></span></div>
                             <div class="card-body">
                                 <div class="progress mb-3">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: <?= $mufrodat[$i]['mufrodat']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: <?= $mufrodat[$i]['mufrodat']?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><?= floor($mufrodat[$i]['mufrodat'])?>%</div>
                                 </div>
                                 <?php if($mufrodat[$i]['mufrodat'] == 100) :?>
                                     <a href="<?= base_url()?>mufrodat?id=<?= MD5($mufrodat[$i]['latihan'])?>" class="btn btn-block btn-sm btn-success"><i class="fa fa-book mr-1"></i> Belajar</a>
