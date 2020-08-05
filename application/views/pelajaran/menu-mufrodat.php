@@ -82,10 +82,26 @@
                             <?php endif;?>
                         </ul>
                     </div>
+                    <div class="col-12 mt-3">
+                        <?php if($back != "" && $next != "") :?>
+                            <div class="d-flex justify-content-between">
+                                <a href="<?= base_url()?><?= $back?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left "></i></a>
+                                <a href="<?= base_url()?><?= $next?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        <?php elseif($back != "" && $next == ""):?>
+                            <div class="d-flex justify-content-start">
+                                <a href="<?= base_url()?><?= $back?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left "></i></a>
+                            </div>
+                        <?php else :?>
+                            <div class="d-flex justify-content-end">
+                                <a href="<?= base_url()?><?= $next?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-right"></i></a>
+                            </div>
+                        <?php endif;?>
+                    </div>
                 <?php else :?>
                     <div class="col-12 col-md-6">
                         <div class="alert alert-info" role="alert">
-                            <i class="fa fa-info-circle mr-1 text-info"></i> belum ada kalimat. bersabarlah :)
+                            <i class="fa fa-info-circle  text-info"></i> belum ada kalimat. bersabarlah :)
                         </div>
                     </div>
                 <?php endif;?>
