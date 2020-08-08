@@ -1,7 +1,13 @@
         <div class="container">
             <div class="row">
                 <?php 
-                    $data = COUNT($tema);
+                    if($user['username'] == "demo"){
+                        $data = 3;
+                    }
+                    else {
+                        $data = COUNT($tema);
+                    }
+
                     for ($i=1; $i < $data ; $i++) :?>
                     <?php $j = $i - 1;?>
                     <!-- <div class="col-12 col-md-4 mb-3"> -->

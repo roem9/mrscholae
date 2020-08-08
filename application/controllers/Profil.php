@@ -49,9 +49,25 @@ class Profil extends CI_CONTROLLER{
         }
 
         public function edit_password(){
-            $id = $this->input->post("id_user");
-            $this->Arab_model->edit_password($id);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="fa fa-check-circle mr-1 text-success"></i>Berhasil mengubah password Anda<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            $id = $this->input->post("id");
+            $username = $this->input->post("username");
+            $cek = $this->Admin_model->get_one("user", ["username" => $username]);
+            $data = [
+                "password" => MD5($this->input->post("password", TRUE)),
+                "username" => $username
+            ];
+
+            if($cek){
+                if(MD5($cek['id_user']) == $id){
+                    $this->Admin_model->edit_data("user", ["MD5(id_user)" => $id], $data);
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="fa fa-check-circle mr-1 text-success"></i>Berhasil mengubah data Login Anda<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                } else {
+                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="fa fa-times-circle mr-1 text-danger"></i>Gagal mengubah data Login Anda, username Anda telah digunakan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                }
+            } else {
+                $this->Admin_model->edit_data("user", ["MD5(id_user)" => $id], $data);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="fa fa-check-circle mr-1 text-success"></i>Berhasil mengubah data Login Anda<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }
             redirect($_SERVER['HTTP_REFERER']);
         }
     // edit

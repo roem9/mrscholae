@@ -41,6 +41,15 @@
                                         </form>
                                     </span>
                                 </li>
+                                <!-- <li class="list-group-item d-flex"> -->
+                                    <!-- <a class="" data-container="body" data-toggle="popover" data-placement="top" data-content="Pintu Itu terbuka"> -->
+                                        <!--<i class="fa fa-info-circle text-info"></i>-->
+                                        <!-- <p style="text-align: right">
+                                        في يومٍ من الأيام كان ملك الغابة الأسد نائماً، فصعد فأرٌ صغير على ظهره وبدأ باللعب، شعر الأسد بالانزعاج من الحركة على ظهره واستيقظ غاضباً، فأمسك الفأر
+                                        </p>
+                                    </a> -->
+                                    <!-- <div class="alert alert-warning"><i class="fa fa-exclamation-circle text-warning mr-1"></i>Tambahkan kalimat <a href="http://"><u><strong>disini</strong></u></a></div> -->
+                                <!-- </li> -->
                                 <li class="list-group-item d-flex justify-content-between">
                                     <?= date("H:i / d-m-Y", strtotime($mufrodat['waktu']))?>
                                     <span>

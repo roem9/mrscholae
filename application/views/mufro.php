@@ -1,88 +1,207 @@
 <?php
-// اللَّوْنُ Warna
 
+// الْأَمْرَاضُ Penyakit-penyakit
+// 1 8
 $data['mufrodat'] = [
     [
-        "kata_arab" => "أَبْيَضُ",
-        "arti" => "Putih (lk)",
-        "huruf" => array_unique(["أَ","بْ","يَ","ضُ"])
+        "kata_arab" => "مَرَضٌ، أَلَمٌ، وَجَعٌ، دَاءٌ",
+        "arti" => "Sakit / penyakit",
+        "huruf" => array_unique(["مَ","رَ","ضٌ"])
     ],
     [
-        "kata_arab" => "بَيْضَاءُ",
-        "arti" => "Putih (pr)",
-        "huruf" => array_unique(["بَ","يْ","ضَ","ا","ءُ"])
+        "kata_arab" => "أَمْرَاضٌ بَاطِنِيَّةٌ",
+        "arti" => "Penyakit dalam",
+        "huruf" => array_unique(["أَ","مْ","رَ","ا","ضٌ","_","بَ","ا","طِ","نِ","يَّ","ةٌ"])
     ],
     [
-        "kata_arab" => "أَسْوَدُ",
-        "arti" => "Hitam (lk)",
-        "huruf" => array_unique(["أَ","سْ","وَ","دُ"])
+        "kata_arab" => "أَمْرَاضٌ سَارِيَةٌ",
+        "arti" => "Penyakit menular",
+        "huruf" => array_unique(["أَ","مْ","رَ","ا","ضٌ","_","سَ","ا","رِ","يَ","ةٌ"])
     ],
     [
-        "kata_arab" => "سَوْدَاءُ",
-        "arti" => "Hitam (pr)",
-        "huruf" => array_unique(["سَ","وْ","دَ","ا","ءُ"])
+        "kata_arab" => "أَمْرَاضٌ عَصَبِيَّةٌ",
+        "arti" => "Penyakit saraf",
+        "huruf" => array_unique(["أَ","مْ","رَ","ا","ضٌ","_","عَ","صَ","بِ","يَّ","ةٌ"])
     ],
     [
-        "kata_arab" => "أَحْمَرُ",
-        "arti" => "Merah (lk)",
-        "huruf" => array_unique(["أَ","حْ","مَ","رُ"])
+        "kata_arab" => "أَمْرَاضٌ حِسِّيَّةٌ",
+        "arti" => "Alergi",
+        "huruf" => array_unique(["أَ","مْ","رَ","ا","ضٌ","_","حِ","سِّ","يَّ","ةٌ"])
     ],
     [
-        "kata_arab" => "حَمْرَاءُ",
-        "arti" => "Merah (pr)",
-        "huruf" => array_unique(["حَ","مْ","رَ","ا","ءُ"])
+        "kata_arab" => "مَرِيْضٌ",
+        "arti" => "Pasien (orang sakit)",
+        "huruf" => array_unique(["مَ","رِ","يْ","ضٌ"])
     ],
     [
-        "kata_arab" => "أَصْفَرُ",
-        "arti" => "Kuning (lk)",
-        "huruf" => array_unique(["أَ","صْ","فَ","رُ"])
+        "kata_arab" => "صَحِيْحٌ",
+        "arti" => "Sehat",
+        "huruf" => array_unique(["صَ","حِ","يْ","حٌ"])
     ],
     [
-        "kata_arab" => "صَفْرَاءُ",
-        "arti" => "Kuning (pr)",
-        "huruf" => array_unique(["صَ","فْ","رَ","ا","ءُ"])
+        "kata_arab" => "صُدَاعٌ",
+        "arti" => "Sakit kepala",
+        "huruf" => array_unique(["صُ","دَ","ا","عٌ"])
     ]
 ];
 
+// 2 8
 $data['mufrodat'] = [
     [
-        "kata_arab" => "أَخْضَرُ",
-        "arti" => "Hijau (lk)",
-        "huruf" => array_unique(["أَ","خْ","ضَ","رُ"])
+        "kata_arab" => "وَجَعُ السِّنِّ",
+        "arti" => "Sakit gigi",
+        "huruf" => array_unique(["وَ","جَ","عُ","_","ا","ل","سِّ","نِّ"])
     ],
     [
-        "kata_arab" => "خَضْرَاءُ",
-        "arti" => "Hijau (pr)",
-        "huruf" => array_unique(["خَ","ضْ","رَ","ا","ءُ"])
+        "kata_arab" => "مَبْطُوْنٌ",
+        "arti" => "Sakit perut",
+        "huruf" => array_unique(["مَ","بْ","طُ","وْ","نٌ"])
     ],
     [
-        "kata_arab" => "أَزْرَقُ",
-        "arti" => "Biru (lk)",
-        "huruf" => array_unique(["أَ","زْ","رَ","قُ"])
+        "kata_arab" => "إِسْهَالٌ",
+        "arti" => "Diare / mencret",
+        "huruf" => array_unique(["إِ","سْ","هَ","ا","لٌ"])
     ],
     [
-        "kata_arab" => "زَرْقَاءُ",
-        "arti" => "Biru (pr)",
-        "huruf" => array_unique(["زَ","رْ","قَ","ا","ءُ"])
+        "kata_arab" => "مَغْصٌ",
+        "arti" => "Mules",
+        "huruf" => array_unique(["مَ","غْ","صٌ"])
     ],
     [
-        "kata_arab" => "أَرْمَدُ",
-        "arti" => "Abu-abu (lk)",
-        "huruf" => array_unique(["أَ","رْ","مَ","دُ"])
+        "kata_arab" => "حُمَّى",
+        "arti" => "Demam",
+        "huruf" => array_unique(["حُ","مَّ","ى"])
     ],
     [
-        "kata_arab" => "رَمْدَاءُ",
-        "arti" => "Abu-abu (pr)",
-        "huruf" => array_unique(["رَ","مْ","دَ","ا","ءُ"])
+        "kata_arab" => "الْحُمَّى الدَّمَوِيَّةُ",
+        "arti" => "Demam berdarah",
+        "huruf" => array_unique(["ا","ل","دَّ","مَ","وِ","يَّ","ةُ"])
     ],
     [
-        "kata_arab" => "أَسْمَرُ",
-        "arti" => "Coklat (lk)",
-        "huruf" => array_unique(["أَ","سْ","مَ","رُ"])
+        "kata_arab" => "زُكَامٌ",
+        "arti" => "Flu / pilek",
+        "huruf" => array_unique(["زُ","كَ","ا","مٌ"])
     ],
     [
-        "kata_arab" => "سَمْرَاءُ",
-        "arti" => "Coklat (pr)",
-        "huruf" => array_unique(["سَ","مْ","رَ","ا","ءُ"])
+        "kata_arab" => "بَرْدٌ",
+        "arti" => "Masuk angin",
+        "huruf" => array_unique(["بَ","رْ","دٌ"])
     ]
 ];
+
+// 3 8
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "سُعَالٌ",
+        "arti" => "Batuk",
+        "huruf" => array_unique([سُعَالٌ])
+    ],
+    [
+        "kata_arab" => "حُكَّةٌ",
+        "arti" => "Gatal-gatal",
+        "huruf" => array_unique([حُكَّةٌ])
+    ],
+    [
+        "kata_arab" => "تَيْفُوْسْ",
+        "arti" => "Typus",
+        "huruf" => array_unique([تَيْفُوْسْ])
+    ],
+    [
+        "kata_arab" => "جُدَرِيٌّ",
+        "arti" => "Cacar",
+        "huruf" => array_unique([جُدَرِيٌّ])
+    ],
+    [
+        "kata_arab" => "سِلُّ الرِّئَةِ",
+        "arti" => "TBC",
+        "huruf" => array_unique([سِلُّ الرِّئَةِ])
+    ],
+    [
+        "kata_arab" => "سَرَطَانٌ",
+        "arti" => "Kanker",
+        "huruf" => array_unique([سَرَطَانٌ])
+    ],
+    [
+        "kata_arab" => "وَرَمٌ",
+        "arti" => "Bengkak",
+        "huruf" => array_unique([وَرَمٌ])
+    ],
+    [
+        "kata_arab" => "دُمَّلٌ",
+        "arti" => "Bisul",
+        "huruf" => array_unique([دُمَّلٌ])
+    ]
+];
+
+
+$data['mufrodat'] = [
+    [
+        "kata_arab" => "بِثْرَةٌ",
+        "arti" => "Jerawat",
+        "huruf" => array_unique(["بِ","ثْ","رَ","ةٌ"])
+    ],
+    [
+        "kata_arab" => "فَقْرُ الدَّمِ",
+        "arti" => "Anemia",
+        "huruf" => array_unique(["فَ","قْ","رُ","_","ا","ل","دَّ","مِ"])
+    ],
+    [
+        "kata_arab" => "ضَغْطُ الدَّمِ الْمُنْخَفِضُ",
+        "arti" => "Darah rendah",
+        "huruf" => array_unique(["ضَ","غْ","طُ","_","ا","ل","دَّ","مِ","_","ا","لْ","مُ","نْ","خَ","فِ","ضُ"])
+    ],
+    [
+        "kata_arab" => "ضَغْطُ الدَّمِ الْعَالِي",
+        "arti" => "Darah tinggi",
+        "huruf" => array_unique(["ضَ","غْ","طُ","_","ا","ل","دَّ","مِ","_","ا","لْ","عَ","ا","لِ","ي"])
+    ],
+    [
+        "kata_arab" => "أَرَقٌ",
+        "arti" => "Insomnia",
+        "huruf" => array_unique(["أَ","رَ","قٌ"])
+    ],
+    [
+        "kata_arab" => "اَلْأَمْرَاضُ نقْصُ الْمَنَّاعَةِ",
+        "arti" => "AIDS",
+        "huruf" => array_unique(["اَ","لْ","أَ","مْ","رَ","ا","ضُ", نقْصُ الْمَنَّاعَةِ])
+    ],
+    [
+        "kata_arab" => "إِلْتِوَاءٌ فِي الْعُنُقِ",
+        "arti" => "Leher kaku",
+        "huruf" => array_unique([إِلْتِوَاءٌ فِي الْعُنُقِ])
+    ],
+    [
+        "kata_arab" => "شَلَلٌ",
+        "arti" => "Stroke",
+        "huruf" => array_unique([شَلَلٌ])
+    ]
+];
+مُنَمِّلَةٌ Kesemutan
+إِلْتِهَابٌ Radang, infeksi, sariawan
+إِسْقَاطُ الْجَنِيْنِ Aborsi
+عَقِيْمٌ Mandul
+الصِّرْعُ Ayan
+طَعْنَةٌ Luka tikam
+دَوَاءٌ Obat
+عَسَلٌ Madu
+حُبُوْبٌ Pil
+قُرْصٌ Tablet
+ضَمَادٌ Plester
+حُقْنَةٌ Suntikan
+عِلَاجٌ Terapi
+وَصْفٌ طِبِّيٌّ Resep dokter
+تَشْخِيْصٌ Diagnosa
+الْفَحْصُ الطِّبِّيُّ Pemeriksaan dokter
+نَقْلُ الدَّمِ Transfusi darah
+التَّبَارُعُ بِالدَّمِ Donor darah
+طَبِيْبُ الْأَسْنَانِ Dokter gigi
+طَبِيْبُ الْعُيُوْنِ Dokter mata
+طَبِيْبُ النَّفْسِ Dokter jiwa
+طَبِيْبُ الْإِخْصَائِيْ Dokter spesialis
+جَرَّاحٌ Ahli bedah
+قِسْمُ الْجَرَاحَةِ Bagian bedah
+قِسْمُ الطَّوَارِئِ Unit gawat darurat
+عَمَلِيَّةٌ جِرَاحِيَّةٌ Operasi
+جِرَاحَةُ التَّجْمِيْلِ Bedah plastik
+عِيَادَةُ الْمَرِيْضِ Besuk / jenguk
+مُخَدِّرَاتٌ Narkotik

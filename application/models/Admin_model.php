@@ -32,12 +32,12 @@ class Admin_model extends CI_MODEL{
     // get one data
 
     // get all data
-        public function get_all($table, $where = "", $order = ""){
+        public function get_all($table, $where = "", $order = "", $urut = "ASC"){
             $this->db->from($table);
             if($where)
                 $this->db->where($where);
             if($order)
-                $this->db->order_by($order, "ASC");
+                $this->db->order_by($order, $urut);
             return $this->db->get()->result_array();
         }
 

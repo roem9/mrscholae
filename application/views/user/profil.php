@@ -10,7 +10,6 @@
                 </div>
                 <div class="modal-body">
                     <form action="<?= base_url()?>beranda/edit_user_by_id" method="post">
-                        <input type="hidden" name="id_user" id="id_user_edit">
                         <div class="form-group">
                             <label for="nama">Nama Lengkap</label>
                             <input type="text" name="nama" id="nama_edit" class="form-control form-control-sm" required>

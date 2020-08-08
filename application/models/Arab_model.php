@@ -423,18 +423,11 @@ class Arab_model extends CI_MODEL{
 
         public function edit_password($id){
             $password = $this->input->post("password");
-
+            $username = $this->input->post("username");
             $this->db->where("id_user", $id);
-            $this->db->update("user", ["password" => MD5($password)]);
+            $this->db->update("user", ["password" => MD5($password), "username" => $username]);
         }
         
-        // public function edit_password_by_id($id){
-        //     $password = $this->input->post("password");
-
-        //     $this->db->where("MD5(id_user)", $id);
-        //     $this->db->update("user", ["password" => MD5($password), "reset" => "0"]);
-        // }
-
         public function edit_reset_password_by_id($id, $reset){
             $this->db->where("id_user", $id);
             $this->db->update("user", ["reset" => $reset]);

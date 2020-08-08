@@ -66,33 +66,49 @@
                 </div>
             <?php endif; ?>
             <div class="row">
-                <div class="col-12 mb-3">
-                    <ul class="list-group">
-                        <li class="list-group-item"><i class="fa fa-user mr-2"></i><?= $user['nama']?></li>
-                        <li class="list-group-item"><i class="fa fa-envelope mr-2"></i><?= $user['email']?></li>
-                        <li class="list-group-item list-group-item-warning">Waktu berlangganan Anda akan habis pada tanggal <strong><?= date('d-M-Y', strtotime($user['tgl_langganan']))?></strong></li>
-                    </ul>
-                </div>
-                <div class="col-12 mb-3">
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-info"><strong>Pengaturan Sandi</strong></li>
-                        <li class="list-group-item">
-                            <form action="profil/edit_password" method="post">
-                                <div class="form-group">
-                                    <label for="pass">Password Baru</label>
-                                    <input type="password" name="password" id="password" class="form-control form-control-sm">
-                                </div>
-                                <div class="form-group">
-                                    <label for="konfirm_pass">Konfirm Password</label>
-                                    <input type="password" name="password2" id="password2" class="form-control form-control-sm">
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <input type="submit" value="Ubah Password" class="btn btn-sm btn-success" id="btnSubmitEditPassword">
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                <?php if($user['username'] == "demo"):?>
+                    <div class="col-12">
+                        <div class="alert alert-info"><i class="fa fa-info-circle text-info mr-1"></i>Profil pengguna</div>
+                    </div>
+                <?php else :?>
+                    <div class="col-12 mb-3">
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item list-group-item-info"><strong>Profil</strong></li>
+                            <li class="list-group-item"><i class="fa fa-user mr-2"></i><?= $user['nama']?></li>
+                            <li class="list-group-item"><i class="fa fa-envelope mr-2"></i><?= $user['email']?></li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-warning"><strong>Langganan</strong></li>
+                            <li class="list-group-item">Biaya berlangganan Anda <strong><?= rupiah($user['biaya']);?>/bln</strong></li>
+                            <li class="list-group-item">Waktu berlangganan Anda akan berakhir pada tanggal <strong><?= date('d-M-Y', strtotime($user['tgl_langganan']))?></strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-success"><strong>Login</strong></li>
+                            <li class="list-group-item">
+                                <form action="profil/edit_password" method="post">
+                                    <input type="hidden" name="id" value="<?= MD5($user['id_user'])?>" readonly>
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" name="username" id="username" value="<?= $user['username']?>" class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pass">Password Baru</label>
+                                        <input type="password" name="password" id="password" class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="konfirm_pass">Konfirm Password</label>
+                                        <input type="password" name="password2" id="password2" class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <input type="submit" value="Ubah Data" class="btn btn-sm btn-success" id="btnSubmitEditPassword">
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif;?>
             </div>
         </div>
     </div>
@@ -148,7 +164,7 @@
 
     $("#btnSubmitEditPassword").click(function(){
         if($("#password").val() == $("#password2").val()){
-            var c = confirm("Yakin akan mengubah password?")
+            var c = confirm("Yakin akan mengubah data?")
             return c;
         } else {
             alert("Password baru dan konfirm password harus sama");

@@ -20,7 +20,7 @@
 								<?php endif; ?>
 								<form action="" method="POST">
 									<div class="form-group">
-										<input type="text" class="form-control form-control-user" value="<?= set_value('email', '')?>" placeholder="Enter Email" name="email" required>
+										<input type="text" class="form-control form-control-user" value="<?= set_value('username', '')?>" placeholder="Username" name="username" required>
 									</div>
 									<div class="form-group">
 										<input type="password" class="form-control form-control-user" value="<?= set_value('password', '')?>" placeholder="Password" name="password" required>

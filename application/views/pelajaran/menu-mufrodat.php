@@ -17,6 +17,11 @@
                         </select>
                     </div>
                 </div>
+                <div class="col-12 mb-1">
+                    <div class="alert alert-warning">
+                        <i class="fa fa-exclamation-circle mr-1 text-warning"></i>Anda memiliki <strong><?= COUNT($listmurojaah)?> kata</strong> yang harus dimurojaah. Murojaah <a href="<?= base_url()?>mufrodat/listmurojaah"><u><strong>di sini</strong></u></a>
+                    </div>
+                </div>
                 <?php $repeat = 0;?>
                 <?php if(!empty($latihan[0]) && !empty($latihan[1]) && !empty($latihan[2])):?>
                     <?php $repeat = 1;?>
@@ -92,7 +97,7 @@
                             <div class="d-flex justify-content-start">
                                 <a href="<?= base_url()?><?= $back?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left "></i></a>
                             </div>
-                        <?php else :?>
+                        <?php elseif($back == "" && $next != "") :?>
                             <div class="d-flex justify-content-end">
                                 <a href="<?= base_url()?><?= $next?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-right"></i></a>
                             </div>

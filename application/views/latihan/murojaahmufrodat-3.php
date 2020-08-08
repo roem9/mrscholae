@@ -145,7 +145,7 @@
     $(".hapus").click(function(){
         let id = $(this).data("id");
         let answer = $("#jaw"+id).val();
-        if (answer.charAt(answer.length-2) == "ّ"){
+        if (answer.charAt(answer.length-2) == "ّ" || answer.charAt(answer.length-1) == "ّ"){
             hapus = answer.slice(0,-3);
         } else if(answer.charAt(answer.length-1) == "ا" || answer.charAt(answer.length-1) == "ى" || answer.charAt(answer.length-1) == "-" || answer.charAt(answer.length-1) == "ل" || answer.charAt(answer.length-1) == "آ" || answer.charAt(answer.length-1) == "ي"){
             hapus = answer.slice(0,-1);

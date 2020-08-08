@@ -19,9 +19,9 @@
         }
 
         public function cek_login_user(){
-            $email = $this->input->post("email");
+            $username = $this->input->post("username");
             $password = md5($this->input->post("password", TRUE));
-            $cek = $this->Admin_model->get_one("user", ["email" => $email, "password" => $password]);
+            $cek = $this->Admin_model->get_one("user", ["username" => $username, "password" => $password]);
             if($cek){
                 $date = date('Y-m-d');
                 // $langganan = $this->Admin_model->get_one("user", "email = '$email' AND password = '$password' AND tgl_langganan = '$date'");
@@ -41,7 +41,7 @@
                     $this->load->view("templates/footer");
                 }
             }else{
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="fa fa-times-circle text-danger mr-1"></i>Maaf, kombinasi email dan password salah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><i class="fa fa-times-circle text-danger mr-1"></i>Maaf, kombinasi username dan password salah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $data['header'] = 'Login User';
                 $data['title'] = 'Login User';
                 $this->load->view("templates/header-login", $data);
